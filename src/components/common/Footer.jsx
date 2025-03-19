@@ -8,7 +8,7 @@ import { MdOutlineEmail, MdOutlineLocalPhone } from "react-icons/md";
 const Footer = () => {
   return (
     <footer className="bg-orange-50 shadow-md rounded-xl w-full p-6 sm:p-9">
-      <div className="flex justify-between gap-[30px] flex-col sm:flex-row flex-wrap w-full">
+      <div className="flex justify-between gap-[30px] flex-col sm:flex-row flex-wrap max-w-[1480px] mx-auto">
         <div className="w-full sm:w-[25%] ">
           <img src={textLogo} alt="logo" className="w-[150px] mb-[20px]" />
           <div
@@ -59,18 +59,6 @@ const Footer = () => {
             >
               Icons
             </p>
-            <p
-              className="text-[0.9rem] text-[#424242] hover:text-[#f1763b]
- cursor-pointer transition-all duration-200"
-            >
-              Opacity Palette
-            </p>
-            <p
-              className="text-[0.9rem] text-[#424242] hover:text-[#f1763b]
- cursor-pointer transition-all duration-200"
-            >
-              Blocks
-            </p>
           </div>
         </div>
 
@@ -91,18 +79,7 @@ const Footer = () => {
             >
               Features
             </p>
-            <p
-              className="text-[0.9rem] text-[#424242] hover:text-[#f1763b]
- cursor-pointer transition-all duration-200"
-            >
-              Our Team
-            </p>
-            <p
-              className="text-[0.9rem] text-[#424242] hover:text-[#f1763b]
- cursor-pointer transition-all duration-200"
-            >
-              Portfolio
-            </p>
+
             <p
               className="text-[0.9rem] text-[#424242] hover:text-[#f1763b]
  cursor-pointer transition-all duration-200"
@@ -123,24 +100,6 @@ const Footer = () => {
             Our Social Media
           </h3>
           <div className="flex text-black flex-col gap-[10px]">
-            <p
-              className="text-[0.9rem] text-[#424242] hover:text-[#f1763b]
- cursor-pointer transition-all duration-200"
-            >
-              Dribble
-            </p>
-            <p
-              className="text-[0.9rem] text-[#424242] hover:text-[#f1763b]
- cursor-pointer transition-all duration-200"
-            >
-              Behance
-            </p>
-            <p
-              className="text-[0.9rem] text-[#424242] hover:text-[#f1763b]
- cursor-pointer transition-all duration-200"
-            >
-              Medium
-            </p>
             <p
               className="text-[0.9rem] text-[#424242] hover:text-[#f1763b]
  cursor-pointer transition-all duration-200"
