@@ -45,7 +45,7 @@ const FeatureSection = () => {
         {features.map((feature, index) => (
           <div
             key={index}
-            className="bg-white shadow-xl rounded-xl p-6 text-center "
+            className="bg-orange-50/60 shadow-xl rounded-xl p-6 text-center "
           >
             <div className="text-4xl mb-4">{feature.icon}</div>
             <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>

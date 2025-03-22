@@ -48,7 +48,7 @@ const reviews = [
 
 const ReviewSection = () => {
   return (
-    <div className="py-6 relative">
+    <div className="py-6 relative mx-auto max-w-[1480px] ">
       <h2 className="text-center font-bold text-2xl md:text-3xl my-4">
         Our Happy Customers
       </h2>

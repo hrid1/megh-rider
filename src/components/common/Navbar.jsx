@@ -17,13 +17,13 @@ const Navbar = () => {
 
         {/* nav links */}
         <ul className="items-center gap-5 text-base text-gray-700 md:flex hidden">
-          {["home", "map", "about us", "contact"].map((item, index) => (
+          {["home", "map", "about us", "contact", "price"].map((item, index) => (
             <NavLink
               key={index}
               to={item === "home" ? "/" : `/${item.replace(" ", "")}`}
               className="relative before:w-0 hover:before:w-full before:bg-orange-500
               before:h-[2px] before:transition-all before:duration-300 before:absolute before:rounded-full 
-              before:bottom-[-2px] hover:text-orange-500 transition-all duration-300 before:left-0 capitalize"
+              before:bottom-[-2px] hover:text-orange-500 transition-all duration-300 before:left-0 capitalize font-medium"
             >
               {item}
             </NavLink>
@@ -33,12 +33,12 @@ const Navbar = () => {
         {/* action buttons */}
         <div className="items-center gap-3 flex">
           <Link to="/sign-in">
-            <button className="py-2 px-4 rounded-full capitalize hover:text-orange-500 transition-all duration-300 sm:flex hidden">
+            <button className="py-2 px-4 rounded-full capitalize hover:text-orange-500 transition-all duration-300 flex">
               Sign in
             </button>
           </Link>
           <Link to="/sign-up">
-            <button className="py-2 px-4 rounded-lg capitalize bg-orange-500 text-white hover:bg-orange-600 transition-all duration-300 sm:flex hidden">
+            <button className="py-2 px-4 rounded-lg capitalize bg-orange-500 text-white hover:bg-orange-600 transition-all duration-300 flex">
               Sign up
             </button>
           </Link>
@@ -78,7 +78,7 @@ const Navbar = () => {
           </div>
 
           <ul className="flex flex-col gap-4 text-base text-gray-600">
-            {["home", "map", "about us", "contact"].map((item, index) => (
+            {["home", "map", "about us", "contact", "price"].map((item, index) => (
               <NavLink
                 key={index}
                 to={item === "home" ? "/" : `/${item.replace(" ", "")}`}

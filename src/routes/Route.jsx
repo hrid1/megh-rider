@@ -3,6 +3,9 @@ import MainLayout from "../layouts/MainLayout";
 import Homepage from "../pages/Homepage/Homepage";
 import Map from "../pages/Map/Map";
 import AboutUs from "../pages/AboutUs/AboutUs";
+import ContactUs from "../pages/ContactUs/ContactUs";
+import Price from "../pages/Price/Price";
+import SignUp from "../pages/SignUp/SignUp";
 
 const router = createBrowserRouter([
   {
@@ -20,6 +23,22 @@ const router = createBrowserRouter([
       {
         path: "/map",
         element: <Map />,
+      },
+      {
+        path: "/contact",
+        element: <ContactUs />,
+      },
+      {
+        path: "/price",
+        element: <Price />,
+      },
+      {
+        path: "/sign-up",
+        element: <SignUp />,
+      },
+      {
+        path: "/sign-in",
+        element: <ContactUs />,
       },
     ],
   },

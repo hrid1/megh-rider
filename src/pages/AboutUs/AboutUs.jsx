@@ -2,7 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { PiSealCheckFill } from "react-icons/pi";
 import dak from "../../assets/dak_v.png";
-import team from "../../assets/team.jpg"
+import { FaBullseye, FaGlobe } from "react-icons/fa";
+
+import team from "../../assets/team.jpg";
 const AboutUs = () => {
   return (
     <div>
@@ -56,26 +58,41 @@ const AboutUs = () => {
 
       {/* section */}
 
-      <section className="flex flex-col md:flex-row items-center justify-around gap-6 my-6 bg-amber-50 py-10">
-        {/* right */}
-      <div>
-      <div className="flex items-center gap-3 mb-4">
-          <PiSealCheckFill className="text-3xl" />
+      <div className="bg-gray-100 py-16 px-6 text-center">
+      <div className="max-w-5xl mx-auto bg-amber-50 p-8 rounded-2xl shadow-lg">
+        <h2 className="text-3xl font-bold">Our Mission & Vision</h2>
 
-          <div>
-            <h4 className="font-semibold text-orange-400">Licensed</h4>
-            <p>A licensed courier services of GPO</p>
+        <div className="flex flex-col md:flex-row gap-8 justify-center items-start mt-6">
+          {/* Mission Section */}
+          <div className="flex-1 bg-white p-6 rounded-xl shadow-md">
+            <div className="flex items-center gap-3">
+              <FaBullseye className="text-orange-400 text-3xl" />
+              <h3 className="text-2xl font-semibold text-gray-800">Our Mission</h3>
+            </div>
+            <p className="text-gray-600 mt-2">
+              Our mission is to provide fast, reliable, and secure courier
+              services that connect people and businesses seamlessly. We are
+              committed to ensuring timely deliveries, exceptional customer
+              support, and innovative solutions to make logistics hassle-free.
+            </p>
+          </div>
+
+          {/* Vision Section */}
+          <div className="flex-1 bg-white p-6 rounded-xl shadow-md">
+            <div className="flex items-center gap-3">
+              <FaGlobe className="text-orange-400 text-3xl" />
+              <h3 className="text-2xl font-semibold text-gray-800">Our Vision</h3>
+            </div>
+            <p className="text-gray-600 mt-2">
+              Our vision is to become the most trusted and innovative courier
+              service, expanding our network globally while maintaining
+              efficiency and affordability. We strive to revolutionize
+              logistics with cutting-edge technology and eco-friendly solutions.
+            </p>
           </div>
         </div>
-        <img className="w-20" src={dak} alt="" />
       </div>
-
-        {/* left */}
-
-        <div>
-            <h3>Our Partner</h3>
-        </div>
-      </section>
+    </div>
     </div>
   );
 };
