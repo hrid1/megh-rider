@@ -48,7 +48,7 @@ const reviews = [
 
 const ReviewSection = () => {
   return (
-    <div className="py-6 relative mx-auto max-w-[1480px] ">
+    <div className="py-8 shadow relative mx-auto max-w-[1480px] ">
       <h2 className="text-center font-bold text-2xl md:text-3xl my-4">
         Our Happy Customers
       </h2>
@@ -59,7 +59,7 @@ const ReviewSection = () => {
         {reviews.map((review, index) => (
           <div
             key={index}
-            className="bg-white shadow-xl rounded-lg p-5 mx-4 w-96 flex flex-col "
+            className="bg-white shadow-xl rounded-lg p-5 mx-4 w-96 flex flex-col m-4"
           >
             <div className="flex">
               <SiComma />

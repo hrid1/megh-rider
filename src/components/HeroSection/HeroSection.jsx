@@ -6,12 +6,12 @@ import { IoBicycleSharp } from "react-icons/io5";
 
 const HeroSection = () => {
   return (
-    <section class="min-h-[460px] flex items-center justify-center bg-orange-50 py-6">
+    <section class="min-h-[460px] flex items-center justify-center bg-orange-50 py-6 md:px-12 px-2">
       <div class="container mx-auto px-6 flex flex-col md:flex-row items-center">
         <div class="md:w-1/3 text-center md:text-left space-y-5">
           <h1 class="text-4xl md:text-5xl font-bold text-gray-800 leading-tight">
-            We <span class="text-orange-400 underline">Deliver</span> Parcel <br /> on
-            Time with no Hassle
+            We <span class="text-orange-400 underline">Deliver</span> Parcel
+            <br /> on Time with no Hassle
           </h1>
           <p class="text-gray-600 text-lg">
             Easy Tracking, fast Payment, and safe Delivery across the country.

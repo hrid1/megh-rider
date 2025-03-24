@@ -60,23 +60,36 @@ export default function Price() {
 
       {/* Category */}
       <label className="block mt-4 text-gray-700">Category</label>
-      <input
+      <select
         className="w-full border p-2 rounded-md"
         value={category}
-        readOnly
-      />
+        onChange={(e) => {
+          setCategory(e.target.value);
+          updatePrice();
+        }}
+      >
+        <option value={"regular"}>Regular</option>
+        <option value={"document"}>Document</option>
+        <option value={"book"}>Book</option>
+      </select>
 
       {/* Service Type */}
       <label className="block mt-4 text-gray-700">Service Type</label>
-      <input
+      <select
         className="w-full border p-2 rounded-md"
         value={serviceType}
-        readOnly
-      />
+        onChange={(e) => {
+          setServiceType(e.target.value);
+          updatePrice();
+        }}
+      >
+        <option value={"sameday"}>Same Day</option>
+        <option value={"regular"}>Regular</option>
+      </select>
 
       {/* Weight */}
       <label className="block mt-4 text-gray-700">Weight (KG)</label>
-      <input className="w-full border p-2 rounded-md" value={weight} readOnly />
+      <input className="w-full border p-2 rounded-md" value={weight}  />
 
       {/* Price Output */}
       <div className="mt-6 p-4 bg-gray-100 text-center font-bold text-lg rounded-md">
