@@ -3,8 +3,11 @@ import { FaCloudUploadAlt } from "react-icons/fa";
 import districtList from "../../constants/districtList";
 import districtAreas from "../../constants/districtAres";
 import bankOptions from "../../constants/bankOptions";
+import { Link } from "react-router-dom";
 
 const SignUp = () => {
+  const [isChecked, setIsChecked] = useState(false);
+
   const [formData, setFormData] = useState({
     companyName: "",
     merchantName: "",
@@ -15,14 +18,19 @@ const SignUp = () => {
     contactNumber: "",
     facebookPage: "",
     website: "",
+    productType: "",
+    paymentMethod: "",
+    bankName: "",
+    branchName: "",
     accountName: "",
     accountNumber: "",
-    branchName: "",
-    bankName: "",
+    routingNumber: "",
+    note: "",
     mobileBankingProvider: "",
     mobileBankingType: "",
     mobileBankingNumber: "",
     nid: "",
+    username: "",
     email: "",
     password: "",
     confirmPassword: "",
@@ -46,13 +54,14 @@ const SignUp = () => {
       setFormData((prev) => ({ ...prev, area: "" }));
     }
   };
-  //   const handleChange = (e) => {
-  //     setFormData({ ...formData, [e.target.name]: e.target.value });
-  //   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.table("form Data", formData);
+    if (isChecked) {
+      console.table("form Data", formData);
+    } else {
+      alert("Check terms and contion");
+    }
   };
   return (
     <div className="max-w-4xl mx-auto p-6 bg-white shadow-xl rounded-lg my-2">
@@ -89,11 +98,11 @@ const SignUp = () => {
             <label className="font-medium" htmlFor="">
               Full Address:
             </label>
-            <input
+            <textarea
               type="text"
               name="fullAddress"
               placeholder="Full Address"
-              className="w-full p-2 border rounded mt-2"
+              className="w-full p-2 border rounded mt-2 h-12"
               onChange={handleChange}
             />
           </div>
@@ -101,11 +110,11 @@ const SignUp = () => {
             <label className="font-medium" htmlFor="">
               Bussiness Address:
             </label>
-            <input
+            <textarea
               type="text"
               name="businessAddress"
-              placeholder="Business Address"
-              className="w-full p-2 border rounded mt-2"
+              placeholder="Address of Your Pickup Location"
+              className="w-full p-2 border rounded mt-2 h-12"
               onChange={handleChange}
             />
           </div>
@@ -121,7 +130,7 @@ const SignUp = () => {
               className="p-2 border rounded w-full"
               onChange={handleChange}
             >
-              <option >Select District</option>
+              <option>Select District</option>
               {districtList.map((bank, index) => (
                 <option key={index} value={bank}>
                   {bank}
@@ -148,19 +157,38 @@ const SignUp = () => {
               ))}
             </select>
           </div>
+
+          <div>
+            {/* contact number */}
+            <label className="font-medium" htmlFor="">
+              Contact Number:
+            </label>
+
+            <input
+              type="tel"
+              name="contactNumber"
+              placeholder="Contact Number"
+              className="w-full p-2 border rounded mt-1.5"
+              onChange={handleChange}
+            />
+          </div>
+
+          <div>
+            {/* owner number */}
+            <label className="font-medium" htmlFor="">
+              Owner Mobile Number:
+            </label>
+
+            <input
+              type="tel"
+              name="ownerNumber"
+              placeholder="Owner Number"
+              className="w-full p-2 border rounded mt-1.5"
+              onChange={handleChange}
+            />
+          </div>
         </div>
 
-        <label className="font-medium" htmlFor="">
-          Contact Number
-        </label>
-
-        <input
-          type="tel"
-          name="contactNumber"
-          placeholder="Contact Number"
-          className="w-full p-2 border rounded mt-1.5"
-          onChange={handleChange}
-        />
         <div>
           <label className="font-medium" htmlFor="">
             Facebook Page URL
@@ -185,96 +213,175 @@ const SignUp = () => {
             onChange={handleChange}
           />
         </div>
-        <label className="font-semibold text-xl mb-2 block" htmlFor="">
-          Bank Details
-        </label>
-        <div className="grid grid-cols-2 gap-2">
+        <div>
+          <label className="font-medium" htmlFor="">
+            Your Products Type
+          </label>
           <input
-            type="text"
-            name="accountName"
-            placeholder="Account Name"
-            className="p-2 border rounded"
+            type="url"
+            name="productType"
+            placeholder="What kind of products do you sell? "
+            className="w-full p-2 border rounded"
             onChange={handleChange}
           />
-          <input
-            type="text"
-            name="accountNumber"
-            placeholder="Account Number"
-            className="p-2 border rounded"
-            onChange={handleChange}
-          />
-          <input
-            type="text"
-            name="branchName"
-            placeholder="Branch Name"
-            className="p-2 border rounded"
-            onChange={handleChange}
-          />
+        </div>
+
+        {/* Payment method */}
+        <div>
+          <label className="font-medium " htmlFor="">
+            Default Payment Method:
+          </label>
+          <br />
           <select
-            name="bankName"
-            className="p-2 border rounded"
+            name="paymentMethod"
+            className="p-2 border rounded w-full"
             onChange={handleChange}
           >
-            <option value="">Select Bank</option>
-            {bankOptions.map((bank, index) => (
-              <option key={index} value={bank}>
-                {bank}
-              </option>
-            ))}
+            <option>Select Method</option>
+            <option value={"bank"}>Bank</option>
+            <option value={"mobilebank"}>Mobile Banking</option>
           </select>
         </div>
 
-        <label className="font-semibold text-xl mb-2 block" htmlFor="">
-          Mobile Banking Details
-        </label>
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
-          <div>
-            <label className="font-medium" htmlFor="mobileBankingProvider">
-              Provider:
-            </label>
-            <br />
-            <select
-              name="mobileBankingProvider"
-              id="mobileBankingProvider"
-              className="p-2 border rounded w-full"
-              onChange={handleChange}
-            >
-              <option value="">Select</option>
-              <option value="bkash">bKash</option>
-              <option value="nagad">Nagad</option>
-              <option value="upay">Upay</option>
-            </select>
+        <fieldset className="border p-4 rounded-md">
+          <legend className="font-semibold text-xl mb-2 block">
+            Bank Details
+          </legend>
+
+          <div className="grid grid-cols-2 gap-2">
+            <div>
+              <label className="font-medium block " htmlFor="">
+                Bank Name
+              </label>
+              <select
+                name="bankName"
+                className="p-2 border rounded w-full"
+                onChange={handleChange}
+              >
+                <option value="">Select Bank</option>
+                {bankOptions.map((bank, index) => (
+                  <option key={index} value={bank}>
+                    {bank}
+                  </option>
+                ))}
+              </select>
+            </div>
+            <div>
+              <label className="font-medium block " htmlFor="">
+                Branch Name
+              </label>
+              <input
+                type="text"
+                name="branchName"
+                placeholder="Branch Name"
+                className="p-2 border rounded w-full"
+                onChange={handleChange}
+              />
+            </div>
+            <div>
+              <label className="font-medium block " htmlFor="">
+                Account Holder Name
+              </label>
+              <input
+                type="text"
+                name="accountName"
+                placeholder="Account Name"
+                className="p-2 border rounded w-full"
+                onChange={handleChange}
+              />
+            </div>
+            <div>
+              <label className="font-medium block " htmlFor="">
+                Account Number
+              </label>
+              <input
+                type="text"
+                name="accountNumber"
+                placeholder="Account Number"
+                className="p-2 border rounded w-full  appearance-none [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
+                onChange={handleChange}
+              />
+            </div>
+            <div>
+              <label className="font-medium block" htmlFor="">
+                Routing Number:
+              </label>
+              <input
+                type="text"
+                name="routingNumber"
+                placeholder="Routing Number"
+                className="p-2 border rounded w-full appearance-none [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
+                onChange={handleChange}
+              />
+            </div>
+            <div>
+              <label className="font-medium block" htmlFor="">
+                Note:
+              </label>
+              <input
+                type="text"
+                name="note"
+                placeholder="Write Note"
+                className="p-2 border rounded w-full"
+                onChange={handleChange}
+              />
+            </div>
           </div>
-          <div>
-            <label className="font-medium" htmlFor="mobileBankingType">
-              Type:
-            </label>
-            <br />
-            <select
-              name="mobileBankingType"
-              id="mobileBankingType"
-              className="p-2 border rounded w-full"
-              onChange={handleChange}
-            >
-              <option value="">Select</option>
-              <option value="Personal">Personal</option>
-              <option value="Business">Business</option>
-            </select>
+
+          <label className="font-semibold text-xl mb-2 block" htmlFor="">
+            Mobile Banking Details
+          </label>
+
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
+            <div>
+              <label className="font-medium" htmlFor="mobileBankingProvider">
+                Provider:
+              </label>
+              <br />
+              <select
+                name="mobileBankingProvider"
+                id="mobileBankingProvider"
+                className="p-2 border rounded w-full"
+                onChange={handleChange}
+              >
+                <option value="">Select</option>
+                <option value="bkash">bKash</option>
+                <option value="nagad">Nagad</option>
+                <option value="upay">Upay</option>
+              </select>
+            </div>
+            <div>
+              <label className="font-medium" htmlFor="mobileBankingType">
+                Type:
+              </label>
+              <br />
+              <select
+                name="mobileBankingType"
+                id="mobileBankingType"
+                className="p-2 border rounded w-full"
+                onChange={handleChange}
+              >
+                <option value="">Select</option>
+                <option value="Personal">Personal</option>
+                <option value="Business">Business</option>
+              </select>
+            </div>
+            <div>
+              <label className="font-medium" htmlFor="mobileBankingNumber">
+                Number:
+              </label>
+              <input
+                type=""
+                name="mobileBankingNumber"
+                id="mobileBankingNumber"
+                placeholder="Mobile Number"
+                className="p-2 border rounded w-full appearance-none [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
+                onChange={handleChange}
+              />
+            </div>
           </div>
-          <div>
-            <label className="font-medium" htmlFor="mobileBankingNumber">
-              Number:
-            </label>
-            <input
-              type="text"
-              name="mobileBankingNumber"
-              id="mobileBankingNumber"
-              placeholder="Mobile Number"
-              className="p-2 border rounded w-full"
-              onChange={handleChange}
-            />
-          </div>
-        </div>
+        </fieldset>
+
         <label className="font-medium" htmlFor="mobileBankingNumber">
           NID Number:
         </label>
@@ -282,7 +389,7 @@ const SignUp = () => {
           type="number"
           name="nid"
           placeholder="Enter the NID Number"
-          className="w-full p-2 border rounded"
+          className="w-full p-2 border rounded appearance-none [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
           onChange={handleChange}
         />
         {/* NID Upload */}
@@ -290,7 +397,7 @@ const SignUp = () => {
           {/* fontside */}
           <div>
             <label className="font-medium" htmlFor="nidUploadFront">
-              NID  (FrontSide):
+              NID (FrontSide):
             </label>
             <label
               htmlFor="nidUploadFront"
@@ -342,13 +449,13 @@ const SignUp = () => {
           <label className="font-medium" htmlFor="tradeLicense">
             Trade License:
           </label>
-          <div className="flex items-center border border-gray-600 rounded-lg overflow-hidden bg-gray-50 ">
-            <label
-              htmlFor="tradeLicense"
-              className="cursor-pointer bg-gray-800 text-gray-100 px-4 py-2 hover:bg-gray-900 "
-            >
-              Choose File
-            </label>
+          <label
+            htmlFor="tradeLicense"
+            className="flex items-center border border-gray-600 rounded-lg overflow-hidden bg-gray-50 w-full cursor-pointer"
+          >
+            <div className="bg-gray-800 text-gray-100 px-4 py-2 hover:bg-gray-900">
+              Choose_File
+            </div>
             <input
               type="file"
               name="tradeLicense"
@@ -356,10 +463,10 @@ const SignUp = () => {
               className="hidden"
               onChange={handleChange}
             />
-            <span className="px-4 py-2 text-gray-500 truncate">
+            <span className="px-4 py-2 text-gray-500 truncate w-full">
               {formData.tradeLicense?.name || "No file chosen"}
             </span>
-          </div>
+          </label>
         </div>
 
         {/* TIN Certificate */}
@@ -367,13 +474,13 @@ const SignUp = () => {
           <label className="font-medium" htmlFor="tinCertificate">
             TIN Certificate:
           </label>
-          <div className="flex items-center border border-gray-600 rounded-lg overflow-hidden bg-gray-50">
-            <label
-              htmlFor="tinCertificate"
-              className="cursor-pointer bg-gray-800 text-gray-100 px-4 py-2 hover:bg-gray-900"
-            >
-              Choose File
-            </label>
+          <label
+            htmlFor="tinCertificate"
+            className="flex items-center border border-gray-600 rounded-lg overflow-hidden bg-gray-50 w-full cursor-pointer"
+          >
+            <div className="bg-gray-800 text-gray-100 px-4 py-2 hover:bg-gray-900">
+              Choose_File
+            </div>
             <input
               type="file"
               name="tinCertificate"
@@ -381,50 +488,98 @@ const SignUp = () => {
               className="hidden"
               onChange={handleChange}
             />
-            <span className="px-4 py-2 text-gray-500 truncate">
+            <span className="px-4 py-2 text-gray-500 truncate w-full">
               {formData.tinCertificate?.name || "No file chosen"}
             </span>
-          </div>
+          </label>
         </div>
 
         {/* Email and Password */}
 
-        <label className="font-medium" htmlFor="">
-          Email
-        </label>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <label className="font-medium" htmlFor="">
+              Username
+            </label>
 
-        <input
-          type="email"
-          name="email"
-          placeholder="Enter email address"
-          className="w-full p-2 border rounded"
-          onChange={handleChange}
-        />
-        <label className="font-medium" htmlFor="">
-          Password
-        </label>
-        <input
-          type="password"
-          name="password"
-          placeholder="Enter password"
-          className="w-full p-2 border rounded"
-          onChange={handleChange}
-        />
-        <label className="font-medium" htmlFor="">
-          Confirm Password
-        </label>
-        <input
-          type="password"
-          name="confirmPassword"
-          placeholder="Enter confirm password"
-          className="w-full p-2 border rounded"
-          onChange={handleChange}
-        />
+            <input
+              type="username"
+              name="username"
+              placeholder="Enter username "
+              className="w-full p-2 border rounded"
+              onChange={handleChange}
+            />
+          </div>
+          <div>
+            <label className="font-medium" htmlFor="">
+              Email
+            </label>
+
+            <input
+              type="email"
+              name="email"
+              placeholder="Enter email address"
+              className="w-full p-2 border rounded"
+              onChange={handleChange}
+            />
+          </div>
+          <div>
+            <label className="font-medium" htmlFor="">
+              Password
+            </label>
+            <input
+              type="password"
+              name="password"
+              placeholder="Enter password"
+              className="w-full p-2 border rounded"
+              onChange={handleChange}
+            />
+          </div>
+          <div>
+            <label className="font-medium" htmlFor="">
+              Confirm Password
+            </label>
+            <input
+              type="password"
+              name="confirmPassword"
+              placeholder="Enter confirm password"
+              className="w-full p-2 border rounded"
+              onChange={handleChange}
+            />
+          </div>
+        </div>
+
+        <div className="flex justify-between items-center">
+          <div className="flex items-center gap-2">
+            <input
+              type="checkbox"
+              id="terms"
+              checked={isChecked}
+              onChange={() => setIsChecked(!isChecked)}
+              className="w-4 h-4"
+            />
+            <label htmlFor="terms" className="text-sm">
+              I agree to the{" "}
+              <a href="#" className="text-orange-400 underline">
+                Terms and Conditions
+              </a>
+            </label>
+          </div>
+          <p>
+            Already have an account{" "}
+            <Link
+              className="text-orange-500 font-medium underline"
+              to={"/sign-in"}
+            >
+              Sign In
+            </Link>
+          </p>
+        </div>
         <button
           type="submit"
-          className="w-full bg-red-500 text-white p-2 rounded"
+          className="w-full bg-orange-500 text-white p-2 rounded cursor-pointer"
         >
-          Submit
+          Register
         </button>
       </form>
     </div>
