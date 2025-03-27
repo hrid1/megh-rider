@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import textLogo from "../../assets/textLogo2.png";
 
 // react icons
@@ -8,10 +8,35 @@ import { Link, NavLink } from "react-router-dom";
 
 const Navbar = () => {
   const [mobileSidebarOpen, setMobileSidebarOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  // Handle scroll event
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    // Cleanup event listener on component unmount
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   return (
-    <div className="inset-x-0 top-0 sticky z-50 backdrop-blur-3xl bg-amber-50">
-      <nav className="flex items-center justify-between w-full relative container px-4 py-3 mx-auto ">
+    <div
+      className={`inset-x-0  z-50 transition-all duration-300 ${
+        isScrolled
+          ? "bg-white opacity-95 shadow-xl top-0 sticky shadow-xl "
+          : "bg-amber-50"
+      }`}
+    >
+      <nav className="flex items-center justify-between w-full relative container px-6 py-4 mx-auto">
         {/* logo */}
         <Link to="/">
           <img src={textLogo} alt="logo" className="md:w-36 w-24" />
@@ -37,12 +62,12 @@ const Navbar = () => {
         {/* action buttons */}
         <div className="items-center gap-3 flex">
           <Link to="/sign-in">
-            <button className="py-2 px-4 rounded-full capitalize hover:text-orange-500 transition-all duration-300 flex">
+            <button className="py-2 px-4 rounded-full capitalize hover:text-orange-500 transition-all duration-300 flex font-medium">
               Sign in
             </button>
           </Link>
           <Link to="/sign-up">
-            <button className="py-2 px-4 rounded-lg capitalize bg-orange-500 text-white hover:bg-orange-600 transition-all duration-300 flex">
+            <button className="py-2 px-4 rounded-lg capitalize bg-orange-500 text-white hover:bg-orange-600 transition-all duration-300 flex font-medium">
               Sign up
             </button>
           </Link>

@@ -4,6 +4,7 @@ import textLogo from "../../assets/textLogo2.png";
 // react icons
 import { IoLocationOutline } from "react-icons/io5";
 import { MdOutlineEmail, MdOutlineLocalPhone } from "react-icons/md";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -41,24 +42,34 @@ const Footer = () => {
             Services
           </h3>
           <div className="flex text-black flex-col gap-[10px]">
-            <p
+            <Link
+              to="/map"
               className="text-[0.9rem] text-[#424242] hover:text-[#f1763b]
  cursor-pointer transition-all duration-200"
             >
-              UI Components
-            </p>
-            <p
+              Map
+            </Link>
+            <Link
+              to="/contact"
               className="text-[0.9rem] text-[#424242] hover:text-[#f1763b]
  cursor-pointer transition-all duration-200"
             >
-              Website Templates
-            </p>
-            <p
+              Contact
+            </Link>
+            <Link
+              to="/aboutus"
               className="text-[0.9rem] text-[#424242] hover:text-[#f1763b]
  cursor-pointer transition-all duration-200"
             >
-              Icons
-            </p>
+              About Us
+            </Link>
+            <Link
+              to="/price"
+              className="text-[0.9rem] text-[#424242] hover:text-[#f1763b]
+ cursor-pointer transition-all duration-200"
+            >
+              Pricing
+            </Link>
           </div>
         </div>
 

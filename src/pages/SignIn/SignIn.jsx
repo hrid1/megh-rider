@@ -3,7 +3,10 @@ import { RiAccountCircleLine, RiLockPasswordLine } from "react-icons/ri";
 import { MdEmail, MdOutlineMail } from "react-icons/md";
 import textLogo from "../../assets/IconLogo.svg";
 import { Link } from "react-router-dom";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 const SignIn = () => {
+  const [showPassword, setShowPassword] = useState(false);
+
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -17,7 +20,12 @@ const SignIn = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log("Form Data Submitted:", formData);
-    
+  };
+
+  // handle show password
+  const handleShowPassword = () => {
+    setShowPassword(!showPassword);
+    console.log(showPassword);
   };
   return (
     <div className="">
@@ -48,7 +56,7 @@ const SignIn = () => {
           <div className="w-full md:w-[80%] relative">
             <RiLockPasswordLine className=" absolute top-3.5 left-3 text-[1.5rem] text-[#777777]" />
             <input
-              type="password"
+              type={showPassword ? `text` : `password`}
               name="password"
               id="password"
               value={formData.password}
@@ -56,6 +64,13 @@ const SignIn = () => {
               placeholder="Password"
               className="peer border-border border rounded-md outline-none pl-10 pr-4 py-3 w-full focus:border-primary transition-colors duration-300"
             />
+
+            <p
+              onClick={handleShowPassword}
+              className=" absolute top-4 right-1.5 text-xl cursor-pointer"
+            >
+              {showPassword ? <FaEye /> : <FaEyeSlash />}
+            </p>
           </div>
         </div>
         <div className="w-full md:w-[80%]">
@@ -64,10 +79,7 @@ const SignIn = () => {
           </Link>
         </div>
         {/* bottom animation */}
-        <button
-          
-          className="bg-orange-400 text-white px-4 py-2 rounded text-font-semibold hover:bg-orange-500 focus:outline-none focus:ring-4 focus:ring-orange-300 transform hover:scale-105 transition duration-300 w-full md:w-[80%]"
-        >
+        <button className="bg-orange-400 text-white px-4 py-2 rounded text-font-semibold hover:bg-orange-500 focus:outline-none focus:ring-4 focus:ring-orange-300 transform hover:scale-105 transition duration-300 w-full md:w-[80%]">
           Login
         </button>
 

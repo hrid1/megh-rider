@@ -1,9 +1,27 @@
-import React from "react";
-
+import React, { useState } from "react";
+import contactUs from "../../assets/contact_us2.jpg";
+import { FaHouse, FaPhone } from "react-icons/fa6";
+import { FaMailBulk } from "react-icons/fa";
 const ContactUs = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("Form Submitted", formData);
+    // You can add form submission logic here (API call, etc.)
+  };
   return (
     <div className="container mx-auto">
-      <div className="bg-gray-100 py-8 px-6 text-center">
+      <div className="bg-gray-100 py-4 px-6 text-center">
         <div className="max-w-2xl mx-auto bg-white p-6 rounded-2xl shadow-lg">
           <h2 className="text-3xl font-bold text-gray-800">
             Fast Support for Fast Deliveries
@@ -11,91 +29,79 @@ const ContactUs = () => {
           <p className="text-gray-600 mt-4">
             Reach out, and we’ll get back to you in no time!
           </p>
-        
         </div>
       </div>
-      <section className="py-6 dark:bg-gray-800-100 dark:text-gray-900 mt-8">
-        <div className="grid max-w-6xl grid-cols-1 px-6 mx-auto lg:px-8 md:grid-cols-2 md:divide-x">
-          <div className="py-6 md:py-0 md:px-6">
-            <h1 className="text-4xl font-bold">Get in touch</h1>
-            <p className="pt-2 pb-4">
-              Fill in the form to start a conversation
-            </p>
-            <div className="space-y-4">
-              <p className="flex items-center">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                  className="w-5 h-5 mr-2 sm:mr-6"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
-                    clipRule="evenodd"
-                  ></path>
-                </svg>
-                <span>Fake address, 9999 City</span>
+      <section className="py-2 dark:bg-gray-800-100 dark:text-gray-900 mt-4">
+        <div className="flex flex-col items-center justify-center py-6 bg-white">
+          <h2 className="text-orange-500 text-3xl font-semibold mb-6">
+            Contact Us
+          </h2>
+          <div className="flex flex-col lg:flex-row items-center gap-10 w-full max-w-6xl">
+            {/* Left Side Illustration and Info */}
+            <div className="flex flex-col items-start text-gray-600 space-y-4 w-full lg:w-1/2 md:text-lg">
+              <img
+                src={contactUs}
+                alt="Illustration"
+                className="w-full max-w-md"
+              />
+              <p className="flex items-center gap-2">
+                <FaHouse/>
+                <span>
+                  # 4th chan mention, foll potti goli. Mirpur 10, Dhaka - 1216
+                </span>
               </p>
-              <p className="flex items-center">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                  className="w-5 h-5 mr-2 sm:mr-6"
-                >
-                  <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path>
-                </svg>
-                <span>123456789</span>
+              <p className="flex items-center gap-2">
+                <FaMailBulk/> <span>info@rxcourier.com.bd</span>
               </p>
-              <p className="flex items-center">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                  className="w-5 h-5 mr-2 sm:mr-6"
-                >
-                  <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
-                  <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
-                </svg>
-                <span>contact@business.com</span>
+              <p className="flex items-center gap-2">
+                <FaPhone/> <span>+88 1974-434044</span>
               </p>
             </div>
+
+            {/* Right Side Contact Form */}
+            <div className="w-full lg:w-1/2 bg-white shadow-lg rounded-lg p-6">
+              <h3 className="text-lg font-semibold mb-4">Send Us A Message</h3>
+              <form className="space-y-4" onSubmit={handleSubmit}>
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Your Name"
+                  className="w-full border border-orange-400 p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500"
+                  value={formData.name}
+                  onChange={handleChange}
+                />
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Email"
+                  className="w-full border border-orange-400 p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500"
+                  value={formData.email}
+                  onChange={handleChange}
+                />
+                <input
+                  type="text"
+                  name="subject"
+                  placeholder="Subject"
+                  className="w-full border border-orange-400 p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500"
+                  value={formData.subject}
+                  onChange={handleChange}
+                />
+                <textarea
+                  name="message"
+                  placeholder="Message"
+                  className="w-full border border-orange-400 p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 h-24"
+                  value={formData.message}
+                  onChange={handleChange}
+                ></textarea>
+                <button
+                  type="submit"
+                  className="w-full bg-orange-500 text-white py-2 rounded-md font-semibold hover:bg-orange-600"
+                >
+                  SEND MESSAGE
+                </button>
+              </form>
+            </div>
           </div>
-          <form
-            noValidate=""
-            className="flex flex-col py-6 space-y-6 md:py-0 md:px-6"
-          >
-            <label className="block">
-              <span className="mb-1">Full name</span>
-              <input
-                type="text"
-                placeholder="Leroy Jenkins"
-                className="block w-full rounded-md shadow-sm focus:ring focus:ring-opacity-75 focus:dark:ring-orange-500 dark:bg-gray-100 p-2"
-              />
-            </label>
-            <label className="block">
-              <span className="mb-1">Email address</span>
-              <input
-                type="email"
-                placeholder="leroy@jenkins.com"
-                className="block w-full rounded-md shadow-sm focus:ring focus:ring-opacity-75 focus:dark:ring-orange-500 dark:bg-gray-100 p-2"
-              />
-            </label>
-            <label className="block">
-              <span className="mb-1">Message</span>
-              <textarea
-                rows="3"
-                className="block w-full rounded-md focus:ring focus:ring-opacity-75 focus:dark:ring-orange-500 dark:bg-gray-100 p-2"
-              ></textarea>
-            </label>
-            <button
-              type="button"
-              className="self-center px-8 py-3 text-lg rounded focus:ring hover:ring focus:ring-opacity-75 dark:bg-orange-500 dark:text-gray-50 focus:dark:ring-orange-500 hover:dark:ring-orange-500"
-            >
-              Submit
-            </button>
-          </form>
         </div>
       </section>
     </div>

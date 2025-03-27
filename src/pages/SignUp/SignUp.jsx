@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { FaCloudUploadAlt } from "react-icons/fa";
+import { FaCloudUploadAlt, FaEye, FaEyeSlash } from "react-icons/fa";
 import districtList from "../../constants/districtList";
 import districtAreas from "../../constants/districtAres";
 import bankOptions from "../../constants/bankOptions";
@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 
 const SignUp = () => {
   const [isChecked, setIsChecked] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
   const [formData, setFormData] = useState({
     companyName: "",
@@ -62,6 +63,12 @@ const SignUp = () => {
     } else {
       alert("Check terms and contion");
     }
+  };
+
+  // handle show password
+  const handleShowPassword = () => {
+    setShowPassword(!showPassword);
+    console.log(showPassword);
   };
   return (
     <div className="max-w-4xl mx-auto p-6 bg-white shadow-xl rounded-lg my-2">
@@ -238,6 +245,7 @@ const SignUp = () => {
             onChange={handleChange}
           >
             <option>Select Method</option>
+            <option value={"cash"}>Cash</option>
             <option value={"bank"}>Bank</option>
             <option value={"mobilebank"}>Mobile Banking</option>
           </select>
@@ -295,7 +303,7 @@ const SignUp = () => {
                 Account Number
               </label>
               <input
-                type="text"
+                type="number"
                 name="accountNumber"
                 placeholder="Account Number"
                 className="p-2 border rounded w-full  appearance-none [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
@@ -307,7 +315,7 @@ const SignUp = () => {
                 Routing Number:
               </label>
               <input
-                type="text"
+                type="number"
                 name="routingNumber"
                 placeholder="Routing Number"
                 className="p-2 border rounded w-full appearance-none [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
@@ -523,34 +531,41 @@ const SignUp = () => {
               onChange={handleChange}
             />
           </div>
-          <div>
+          <div className="relative">
             <label className="font-medium" htmlFor="">
               Password
             </label>
             <input
-              type="password"
+              type={showPassword ? `text` : `password`}
               name="password"
               placeholder="Enter password"
               className="w-full p-2 border rounded"
               onChange={handleChange}
             />
+
+            <p onClick={handleShowPassword} className=" absolute top-9 right-1">
+              {showPassword ? <FaEye /> : <FaEyeSlash />}
+            </p>
           </div>
-          <div>
+          <div className="relative">
             <label className="font-medium" htmlFor="">
               Confirm Password
             </label>
             <input
-              type="password"
+              type={showPassword ? `text` : `password`}
               name="confirmPassword"
               placeholder="Enter confirm password"
               className="w-full p-2 border rounded"
               onChange={handleChange}
             />
+            <p onClick={handleShowPassword} className=" absolute top-9 right-1">
+              {showPassword ? <FaEye /> : <FaEyeSlash />}
+            </p>
           </div>
         </div>
 
-        <div className="flex justify-between items-center">
-          <div className="flex items-center gap-2">
+        <div className="flex flex-col gap-2 md:flex-row justify-between items-center">
+          <div className="flex items-center gap-2 font-medium">
             <input
               type="checkbox"
               id="terms"
@@ -558,8 +573,9 @@ const SignUp = () => {
               onChange={() => setIsChecked(!isChecked)}
               className="w-4 h-4"
             />
+
             <label htmlFor="terms" className="text-sm">
-              I agree to the{" "}
+              I agree to the
               <a href="#" className="text-orange-400 underline">
                 Terms and Conditions
               </a>
