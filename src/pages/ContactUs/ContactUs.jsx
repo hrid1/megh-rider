@@ -38,23 +38,23 @@ const ContactUs = () => {
           </h2>
           <div className="flex flex-col lg:flex-row items-center gap-10 w-full max-w-6xl">
             {/* Left Side Illustration and Info */}
-            <div className="flex flex-col items-start text-gray-600 space-y-4 w-full lg:w-1/2 md:text-lg">
+            <div className="flex flex-col items-center text-gray-600 space-y-4 w-full lg:w-1/2 text-sm md:text-lg  p-4">
               <img
                 src={contactUs}
                 alt="Illustration"
                 className="w-full max-w-md"
               />
               <p className="flex items-center gap-2">
-                <FaHouse/>
+                <FaHouse />
                 <span>
-                  # 4th chan mention, foll potti goli. Mirpur 10, Dhaka - 1216
+                  HQ- 601, Road - 09, Adabor, Mohammadpur, Dhaka 1207
                 </span>
               </p>
               <p className="flex items-center gap-2">
-                <FaMailBulk/> <span>info@rxcourier.com.bd</span>
+                <FaMailBulk /> <span>info@meghswarcourier.com</span>
               </p>
               <p className="flex items-center gap-2">
-                <FaPhone/> <span>+88 1974-434044</span>
+                <FaPhone /> <span>+8809601010002</span>
               </p>
             </div>
 

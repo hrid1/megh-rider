@@ -4,35 +4,34 @@ import React, { useState } from "react";
 import { FaPlus } from "react-icons/fa6";
 
 const FaqSection = () => {
-  const accordingData = [
+  const accordionData = [
     {
-      title: "What is the purpose of wireframing in design?",
+      title: "What is Meghswar Courier?",
       description:
-        "Wireframing outlines the basic structure and layout of a design, serving as a visual guide before detailed development.",
+        "Meghswar Courier is the leading e-courier service in Bangladesh. You will get your delivery within 24 hours in Dhaka city and 72 hours across Bangladesh. Our strong team ensures fast deliveries at the most affordable rates.",
     },
     {
-      title: "Why is user-centered design important?",
+      title: "How do I contact you?",
       description:
-        "User-centered design ensures products meet the needs and preferences of the end-users, enhancing usability and satisfaction.",
+        "You can call us at +8809601010002 or email us at info@MeghswarCourier.com. You can also connect with us on Facebook.",
     },
     {
-      title: "What role does contrast play in graphic design?",
+      title: "How can a merchant track their parcel delivery?",
       description:
-        "Contrast in graphic design emphasizes differences, making elements stand out and improving visual hierarchy.",
+        "Merchants can track their parcel ID and view status updates on our website or through the merchant panel’s parcel activity logs.",
     },
-
     {
-      title: `Define the term "responsive design" in web development.`,
+      title: "Want to know about your delivery charges?",
       description:
-        "Responsive design ensures web pages adapt to various screen sizes, providing an optimal user experience on different devices.",
+        "Discover our delivery charges, which are determined by the weight of a 0.5 kg parcel:\n\nInside Dhaka: 70\n\nDhaka Suburban: 100\n\nOutside Dhaka: 120",
     },
-
     {
-      title: "What is the significance of color theory in design?",
+      title: "What Is Our Story?",
       description:
-        "Color theory guides the selection and combination of colors to evoke specific emotions, enhance readability, and create visually appealing designs.",
+        "Welcome to our world. Meghswar Courier has built a strong reputation as a courier service for online traders in Dhaka since 2015. We are a registered ‘Service Business’ organization under the Government of the People's Republic of Bangladesh. Our goal is to deliver products on time and efficiently. Our custom-built online software allows you to monitor every stage, from parcel handover to cash collection, ensuring a seamless experience.",
     },
   ];
+  
 
   const [isPlusAccording, setIsPlusAccording] = useState(null);
 
@@ -42,7 +41,7 @@ const FaqSection = () => {
   return (
     <div className="flex gap-3 flex-col max-w-4xl mx-auto my-4 md:my-6 px-2">
       <h2 className="text-center text-2xl md:text-4xl font-bold mb-4">FAQ</h2>
-      {accordingData?.map((according, index) => (
+      {accordionData?.map((according, index) => (
         <article key={index} className="border border-[#e5eaf2] rounded p-3">
           <div
             className="flex gap-2 cursor-pointer items-center justify-between w-full"

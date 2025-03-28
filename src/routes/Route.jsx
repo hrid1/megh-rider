@@ -7,6 +7,7 @@ import ContactUs from "../pages/ContactUs/ContactUs";
 import Price from "../pages/Price/Price";
 import SignUp from "../pages/SignUp/SignUp";
 import SignIn from "../pages/SignIn/SignIn";
+import TermsAndConditions from "../pages/TermsAndConditions/TermsAndConditions";
 
 const router = createBrowserRouter([
   {
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
       {
         path: "/price",
         element: <Price />,
+      },
+      {
+        path: "/terms",
+        element: <TermsAndConditions />,
       },
       {
         path: "/sign-up",

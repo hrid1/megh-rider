@@ -3,6 +3,7 @@ import Lottie from "lottie-react";
 import rider from "../../assets/lottie/rider.json";
 import { FaHome, FaUserTie } from "react-icons/fa";
 import { IoBicycleSharp } from "react-icons/io5";
+import { Link } from "react-router-dom";
 
 const HeroSection = () => {
   return (
@@ -10,15 +11,18 @@ const HeroSection = () => {
       <div class="container mx-auto px-6 flex flex-col md:flex-row items-center">
         <div class="md:w-1/3 text-center md:text-left space-y-5">
           <h1 class="text-4xl md:text-5xl font-bold text-gray-800 leading-tight">
-            We <span class="text-orange-400 underline">Deliver</span> Parcel
-            <br /> on Time with no Hassle
+            We <span class="text-orange-400 underline">Guarantee</span>
+            <br /> Fast and Secure Parcel Delivery
           </h1>
           <p class="text-gray-600 text-lg">
-            Easy Tracking, fast Payment, and safe Delivery across the country.
+            Simple Tracking, Quick Payments, and No Hassles.
           </p>
-          <button class="bg-orange-400 text-white px-6 py-3 rounded-lg shadow-md hover:bg-orange-500 transition font-semibold">
-            Become a Merchant
-          </button>
+
+          <Link to="/sign-up">
+            <button class="bg-orange-400 text-white px-6 py-3 rounded-lg shadow-md hover:bg-orange-500 transition font-semibold">
+              Become a Merchant
+            </button>
+          </Link>
         </div>
 
         <div class="md:w-2/3 mt-10 md:mt-0 flex flex-col md:flex-row items-center justify-around">
@@ -34,7 +38,7 @@ const HeroSection = () => {
               </div>
               <div className="">
                 <h2 className="text-2xl md:text-3xl font-bold text-left">
-                  300k+
+                  100+
                 </h2>
                 <p className="text-gray-600 font-semibold">
                   Registered Merchant
@@ -47,7 +51,7 @@ const HeroSection = () => {
               </div>
               <div className="">
                 <h2 className="text-2xl md:text-3xl font-bold text-left">
-                  10k+
+                  65+
                 </h2>
                 <p className="text-gray-600 font-semibold">Delivery Man</p>
               </div>
@@ -58,7 +62,7 @@ const HeroSection = () => {
               </div>
               <div className="">
                 <h2 className="text-2xl md:text-3xl font-bold text-left">
-                  300k+
+                  47+
                 </h2>
                 <p className="text-gray-600 font-semibold">Delivery Point</p>
               </div>

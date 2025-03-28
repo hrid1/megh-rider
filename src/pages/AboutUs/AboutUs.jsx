@@ -13,8 +13,8 @@ const AboutUs = () => {
         <div className="text-center">
           <h2 className="text-3xl font-bold text-gray-900">About Us</h2>
           <p className="text-gray-600 mt-2">
-            As a Web Development Services, We are Committed to Building Custom
-            Web Solutions that Drive Business Success.
+            We provide fast, safe, and reliable courier services, offering
+            tailored solutions for businesses and individuals.
           </p>
         </div>
 
@@ -32,18 +32,19 @@ const AboutUs = () => {
           {/* Right - Text Content */}
           <div className="md:w-1/2 space-y-4 text-gray-700">
             <p>
-              At our web development agency, we specialize in crafting bespoke
-              online solutions tailored to elevate businesses toward their
-              digital objectives. Committed to continuous evolution, we remain
-              abreast of cutting-edge web technologies and trends, ensuring a
-              constant delivery of unparalleled excellence.
+              Welcome to Meghswar Courier, where we have built a strong
+              reputation for delivering reliable courier services to online
+              traders in Dhaka city since 2015. As a government-registered
+              service business in Bangladesh, we pride ourselves on ensuring
+              that each parcel reaches its destination on time, every time.
             </p>
             <p>
-              Our ethos is rooted in equipping clients with the essential tools
-              for triumph in the digital realm. We firmly believe in furnishing
-              every business with a digital presence that authentically embodies
-              their brand essence and effectively resonates with their target
-              demographic.
+              Our mission is simple: to provide fast, reliable, and safe
+              delivery services that meet the unique needs of our clients. With
+              our custom-built online platform, we offer complete transparency,
+              allowing you to track your parcel from drop-off to cash
+              collection, ensuring a seamless experience for both you and your
+              customers.
             </p>
 
             {/* Button */}
@@ -59,40 +60,47 @@ const AboutUs = () => {
       {/* section */}
 
       <div className="bg-gray-100 py-16 px-6 text-center">
-      <div className="max-w-5xl mx-auto bg-amber-50 p-8 rounded-2xl shadow-lg">
-        <h2 className="text-3xl font-bold">Our Mission & Vision</h2>
+        <div className="max-w-5xl mx-auto bg-amber-50 p-8 rounded-2xl shadow-lg">
+          <h2 className="text-3xl font-bold">Our Mission & Vision</h2>
 
-        <div className="flex flex-col md:flex-row gap-8 justify-center items-start mt-6">
-          {/* Mission Section */}
-          <div className="flex-1 bg-white p-6 rounded-xl shadow-md">
-            <div className="flex items-center gap-3">
-              <FaBullseye className="text-orange-400 text-3xl" />
-              <h3 className="text-2xl font-semibold text-gray-800">Our Mission</h3>
-            </div>
-            <p className="text-gray-600 mt-2">
-              Our mission is to provide fast, reliable, and secure courier
-              services that connect people and businesses seamlessly. We are
-              committed to ensuring timely deliveries, exceptional customer
-              support, and innovative solutions to make logistics hassle-free.
-            </p>
-          </div>
+          <div className="flex flex-col md:flex-row gap-8 justify-center items-start mt-6">
+            {/* Mission Section */}
+            <div className="flex-1 bg-white p-6 rounded-xl shadow-md">
+              <div className="flex items-center gap-3">
+                <FaBullseye className="text-orange-400 text-3xl" />
+                <h3 className="text-2xl font-semibold text-gray-800">
+                  Our Mission
+                </h3>
+              </div>
 
-          {/* Vision Section */}
-          <div className="flex-1 bg-white p-6 rounded-xl shadow-md">
-            <div className="flex items-center gap-3">
-              <FaGlobe className="text-orange-400 text-3xl" />
-              <h3 className="text-2xl font-semibold text-gray-800">Our Vision</h3>
+              <p className="text-gray-600 mt-2">
+                Our mission is to deliver fast, dependable, and secure courier
+                services that seamlessly connect businesses and individuals. We
+                are committed to ensuring on-time deliveries, providing
+                outstanding customer support, and implementing innovative
+                solutions to simplify logistics.
+              </p>
             </div>
-            <p className="text-gray-600 mt-2">
-              Our vision is to become the most trusted and innovative courier
-              service, expanding our network globally while maintaining
-              efficiency and affordability. We strive to revolutionize
-              logistics with cutting-edge technology and eco-friendly solutions.
-            </p>
+
+            {/* Vision Section */}
+            <div className="flex-1 bg-white p-6 rounded-xl shadow-md">
+              <div className="flex items-center gap-3">
+                <FaGlobe className="text-orange-400 text-3xl" />
+                <h3 className="text-2xl font-semibold text-gray-800">
+                  Our Vision
+                </h3>
+              </div>
+              <p className="text-gray-600 mt-2">
+                Our vision is to establish ourselves as the most reliable and
+                forward-thinking courier service, expanding our reach globally
+                without compromising on efficiency. We are dedicated to
+                transforming the logistics industry through advanced technology
+                and sustainable practices.
+              </p>
+            </div>
           </div>
         </div>
       </div>
-    </div>
     </div>
   );
 };

@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 const SignIn = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const [rememberMe, setRememberMe] = useState(false);
 
   const [formData, setFormData] = useState({
     email: "",
@@ -19,13 +20,13 @@ const SignIn = () => {
   // Handle form submission
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log("Form Data Submitted:", formData);
+    console.log("Form Data Submitted:", formData, rememberMe);
   };
 
   // handle show password
   const handleShowPassword = () => {
     setShowPassword(!showPassword);
-    console.log(showPassword);
+    // console.log(showPassword);
   };
   return (
     <div className="">
@@ -73,7 +74,16 @@ const SignIn = () => {
             </p>
           </div>
         </div>
-        <div className="w-full md:w-[80%]">
+        <div className="w-full md:w-[80%] flex items-center justify-between">
+          <label className="flex gap-2">
+            <input
+              className="w-4"
+              type="checkbox"
+              checked={rememberMe}
+              onChange={() => setRememberMe(!rememberMe)}
+            />
+            Remember Me
+          </label>
           <Link className="text-right text-gray-600 block">
             Forgot Password ?
           </Link>

@@ -1,134 +1,139 @@
 import React from "react";
 import textLogo from "../../assets/textLogo2.png";
+import appstore from "../../assets/store/appstore2.png";
+import playstore from "../../assets/store/playstore.png";
 
 // react icons
 import { IoLocationOutline } from "react-icons/io5";
 import { MdOutlineEmail, MdOutlineLocalPhone } from "react-icons/md";
 import { Link } from "react-router-dom";
+import { FaFacebook, FaInstagram, FaXTwitter } from "react-icons/fa6";
 
 const Footer = () => {
   return (
     <footer className="bg-orange-50 shadow-md rounded-xl w-full p-6 sm:p-9">
-      <div className="flex justify-between gap-[30px] flex-col sm:flex-row flex-wrap max-w-[1480px] mx-auto">
+      <div className="flex justify-between gap-[20px] flex-col sm:flex-row flex-wrap max-w-[1480px] mx-auto">
         <div className="w-full sm:w-[25%] ">
-          <img src={textLogo} alt="logo" className="w-[150px] mb-[20px]" />
+          <img src={textLogo} alt="logo" className="w-[150px] mb-[10px]" />
           <div
-            className="flex flex-col gap-[20px] text-[#f1763b]
+            className="flex flex-col gap-[10px] text-[#f1763b]
 "
           >
             <span>
               <a className="text-[0.9rem] flex items-center gap-[8px] cursor-pointer">
                 <IoLocationOutline className="text-[1.2rem]" />
-                Kulaura, Moulvibazar, Sylhet
+                {
+                  "Address : HQ- 601, Road - 09, Adabor, Mohammadpur, Dhaka 1207"
+                }
               </a>
             </span>
             <span>
               <a className="text-[0.9rem] flex items-center gap-[8px] hover:text-blue-400 cursor-pointer">
                 <MdOutlineEmail className="text-[1.1rem]" />
-                zenuilibrary@gmail.com
+                info@meghswarcourier.com
               </a>
             </span>
             <span>
               <a className="text-[0.9rem] flex items-center gap-[8px] hover:text-blue-400 cursor-pointer">
                 <MdOutlineLocalPhone className="text-[1.1rem]" />
-                +8801305282768
+                +8809601010002
               </a>
             </span>
           </div>
         </div>
 
         <div className="">
-          <h3 className="text-[1.2rem] font-semibold text-[#424242] mb-2">
-            Services
+          <h3 className="text-[1.2rem] font-semibold text-gray-800 mb-2">
+            Earn
           </h3>
-          <div className="flex text-black flex-col gap-[10px]">
+          <div className="flex text-black flex-col gap-[10px] font-medium text-sm">
             <Link
-              to="/map"
-              className="text-[0.9rem] text-[#424242] hover:text-[#f1763b]
+              to="/sign-up"
+              className="text-[0.9rem] text-gray-500 hover:text-[#f1763b]
  cursor-pointer transition-all duration-200"
             >
-              Map
+              Become a Marchant
             </Link>
-            <Link
-              to="/contact"
-              className="text-[0.9rem] text-[#424242] hover:text-[#f1763b]
- cursor-pointer transition-all duration-200"
-            >
-              Contact
-            </Link>
+
             <Link
               to="/aboutus"
-              className="text-[0.9rem] text-[#424242] hover:text-[#f1763b]
+              className="text-[0.9rem] text-gray-500 hover:text-[#f1763b]
  cursor-pointer transition-all duration-200"
             >
-              About Us
-            </Link>
-            <Link
-              to="/price"
-              className="text-[0.9rem] text-[#424242] hover:text-[#f1763b]
- cursor-pointer transition-all duration-200"
-            >
-              Pricing
+              Become Delivery Man
             </Link>
           </div>
         </div>
 
         <div>
-          <h3 className="text-[1.2rem] font-semibold text-[#424242] mb-2">
+          <h3 className="text-[1.2rem] font-semibold text-gray-800 mb-2">
             Company
           </h3>
-          <div className="flex text-black flex-col gap-[10px]">
-            <p
-              className="text-[0.9rem] text-[#424242] hover:text-[#f1763b]
+          <div className="flex text-black flex-col gap-[10px] font-medium text-sm">
+            <Link
+              to="/aboutus"
+              className="text-[0.9rem] text-gray-500 hover:text-[#f1763b]
  cursor-pointer transition-all duration-200"
             >
-              Service
-            </p>
-            <p
-              className="text-[0.9rem] text-[#424242] hover:text-[#f1763b]
- cursor-pointer transition-all duration-200"
-            >
-              Features
-            </p>
-
-            <p
-              className="text-[0.9rem] text-[#424242] hover:text-[#f1763b]
- cursor-pointer transition-all duration-200"
-            >
-              Blog
-            </p>
-            <p
-              className="text-[0.9rem] text-[#424242] hover:text-[#f1763b]
+              About Us
+            </Link>
+            <Link
+              to="/contact"
+              className="text-[0.9rem] text-gray-500 hover:text-[#f1763b]
  cursor-pointer transition-all duration-200"
             >
               Contact Us
-            </p>
+            </Link>
+            <Link
+              to="/terms"
+              className="text-[0.9rem] text-gray-500 hover:text-[#f1763b]
+ cursor-pointer transition-all duration-200"
+            >
+              Terms and Conditions
+            </Link>
           </div>
         </div>
 
         <div className="">
-          <h3 className="text-[1.2rem] font-semibold text-[#424242] mb-2">
+          <h3 className="text-[1.2rem] font-semibold text-gray-800 mb-2">
             Our Social Media
           </h3>
-          <div className="flex text-black flex-col gap-[10px]">
-            <p
-              className="text-[0.9rem] text-[#424242] hover:text-[#f1763b]
+          <div className="flex text-black  gap-[18px]">
+            <Link
+              to={"/"}
+              className="text-xl text-gray-500 hover:text-[#f1763b]
  cursor-pointer transition-all duration-200"
             >
-              Instagram
-            </p>
-            <p
-              className="text-[0.9rem] text-[#424242] hover:text-[#f1763b]
+              <FaInstagram />
+            </Link>
+            <Link
+              to={"https://www.facebook.com/MeghSwarCourier/ "}
+              className="text-xl text-gray-500 hover:text-[#f1763b]
  cursor-pointer transition-all duration-200"
             >
-              Facebook
-            </p>
-            <p
-              className="text-[0.9rem] text-[#424242] hover:text-[#f1763b]
+              <FaFacebook />
+            </Link>
+            <Link
+              to={"/"}
+              className="text-xl text-gray-500 hover:text-[#f1763b]
  cursor-pointer transition-all duration-200"
             >
-              Twitter
-            </p>
+              <FaXTwitter />
+            </Link>
+
+
+          </div>
+
+          {/* store icon with link */}
+          <div className="flex flex-col mt-6">
+            <Link to="/">
+              {" "}
+              <img className="w-24" src={playstore} alt="" />
+            </Link>
+            <Link to="/">
+              {" "}
+              <img className="w-24" src={appstore} alt="" />
+            </Link>
           </div>
         </div>
       </div>

@@ -14,7 +14,7 @@ const SignUp = () => {
     merchantName: "",
     fullAddress: "",
     businessAddress: "",
-    district: "",
+    district: "Dhaka",
     area: "",
     contactNumber: "",
     facebookPage: "",
@@ -41,7 +41,8 @@ const SignUp = () => {
     tinCertificate: null,
   });
 
-  const [areas, setAreas] = useState([]);
+  const [areas, setAreas] = useState(districtAreas.Dhaka);
+
   const handleChange = (e) => {
     const { name, value, files } = e.target;
     if (files) {
@@ -68,7 +69,7 @@ const SignUp = () => {
   // handle show password
   const handleShowPassword = () => {
     setShowPassword(!showPassword);
-    console.log(showPassword);
+    // console.log(showPassword);
   };
   return (
     <div className="max-w-4xl mx-auto p-6 bg-white shadow-xl rounded-lg my-2">
@@ -126,7 +127,7 @@ const SignUp = () => {
             />
           </div>
         </div>
-        <div className="grid grid-cols-2 gap-2 ">
+        <div className="grid grid-cols-2 gap-4 ">
           <div>
             <label className="font-medium " htmlFor="">
               Select District:
@@ -135,6 +136,7 @@ const SignUp = () => {
             <select
               name="district"
               className="p-2 border rounded w-full"
+              defaultValue="Dhaka" 
               onChange={handleChange}
             >
               <option>Select District</option>
@@ -164,8 +166,10 @@ const SignUp = () => {
               ))}
             </select>
           </div>
+        </div>
 
-          <div>
+        <div className="grid grid-cols-1 md:grid-cols-2 md:gap-4">
+          <div className="relative">
             {/* contact number */}
             <label className="font-medium" htmlFor="">
               Contact Number:
@@ -175,12 +179,16 @@ const SignUp = () => {
               type="tel"
               name="contactNumber"
               placeholder="Contact Number"
-              className="w-full p-2 border rounded mt-1.5"
+              className="w-full py-2 pl-16 border rounded mt-1.5 overflow-hidden "
               onChange={handleChange}
             />
+
+            <span className="bg-slate-800 text-white px-4 py-2 rounded-l absolute top-7.5 left-0 border overflow-hidden">
+              +88
+            </span>
           </div>
 
-          <div>
+          <div className="relative">
             {/* owner number */}
             <label className="font-medium" htmlFor="">
               Owner Mobile Number:
@@ -190,13 +198,17 @@ const SignUp = () => {
               type="tel"
               name="ownerNumber"
               placeholder="Owner Number"
-              className="w-full p-2 border rounded mt-1.5"
+              className="w-full p-2 pl-16 border rounded mt-1.5 overflow-hidden"
               onChange={handleChange}
             />
+
+            <span className="bg-slate-800 text-white px-4 py-2 rounded-l absolute top-7.5 left-0 border overflow-hidden">
+              +88
+            </span>
           </div>
         </div>
 
-        <div>
+        <div className="relative">
           <label className="font-medium" htmlFor="">
             Facebook Page URL
           </label>
@@ -204,11 +216,15 @@ const SignUp = () => {
             type="url"
             name="facebookPage"
             placeholder="Facebook Business Page URL"
-            className="w-full p-2 border rounded mt-1.5"
+            className="w-full p-2 border rounded mt-1.5 pl-24"
             onChange={handleChange}
           />
+
+          <span className="bg-slate-800 text-white px-4 py-2 rounded-l absolute top-7.5 left-0 border overflow-hidden">
+            Https://
+          </span>
         </div>
-        <div>
+        <div className="relative">
           <label className="font-medium" htmlFor="">
             Website Link
           </label>
@@ -216,9 +232,12 @@ const SignUp = () => {
             type="url"
             name="website"
             placeholder="Website URL"
-            className="w-full p-2 border rounded"
+            className="w-full p-2 border rounded pl-24"
             onChange={handleChange}
           />
+          <span className="bg-slate-800 text-white px-4 py-2 rounded-l absolute  left-0 border overflow-hidden">
+            Https://
+          </span>
         </div>
         <div>
           <label className="font-medium" htmlFor="">
@@ -336,7 +355,7 @@ const SignUp = () => {
             </div>
           </div>
 
-          <label className="font-semibold text-xl mb-2 block" htmlFor="">
+          <label className="font-semibold text-xl mb-2 block mt-2 " htmlFor="">
             Mobile Banking Details
           </label>
 
@@ -576,9 +595,9 @@ const SignUp = () => {
 
             <label htmlFor="terms" className="text-sm">
               I agree to the
-              <a href="#" className="text-orange-400 underline">
-                Terms and Conditions
-              </a>
+              <Link to="/terms" className="text-orange-400 underline">
+                {" Terms and Conditions"}
+              </Link>
             </label>
           </div>
           <p>

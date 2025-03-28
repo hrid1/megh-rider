@@ -39,7 +39,7 @@ const features = [
 
 const FeatureSection = () => {
   return (
-    <section className="my-8">
+    <section className="my-8 md:my-12">
         <h2 className="text-center font-bold text-2xl md:text-3xl my-4">Why Choose Us</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-6 place-items-center md:w-5/6 mx-auto">
         {features.map((feature, index) => (

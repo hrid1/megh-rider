@@ -2,8 +2,8 @@ import { useState } from "react";
 import districtList from "../../constants/districtList";
 
 export default function Price() {
-  const [from, setFrom] = useState("Dhaka City");
-  const [to, setTo] = useState("Dhaka City");
+  const [from, setFrom] = useState("Dhaka");
+  const [to, setTo] = useState("Dhaka");
   const [category, setCategory] = useState("Regular");
   const [serviceType, setServiceType] = useState("Regular Day");
   const [weight, setWeight] = useState(0.5);
@@ -12,8 +12,8 @@ export default function Price() {
 
   // Determine the price category
   const getPriceCategory = (from, to) => {
-    if (from === "Dhaka City" && to === "Dhaka City") return "sameCity";
-    if (from === "Dhaka City" && to === "Dhaka Sub-Urban") return "subCity";
+    if (from === "Dhaka" && to === "Dhaka") return "sameCity";
+    if (from === "Dhaka" && to === "Dhaka Sub-Urban") return "subCity";
     return "othersCity";
   };
 
@@ -26,8 +26,8 @@ export default function Price() {
 
   // Function to calculate price
   const calculatePrice = () => {
-    if (serviceType === "Same Day" && to !== "Dhaka City") {
-      setErrorMessage("Same-day service is available only in Dhaka City!");
+    if (serviceType === "Same Day" && to !== "Dhaka") {
+      setErrorMessage("Same-day service is available only in Dhaka!");
       setPrice(null);
       return;
     }
@@ -51,7 +51,9 @@ export default function Price() {
   return (
     <div className="max-w-xl mx-auto p-6 bg-white rounded-lg shadow-md">
       <h2 className="text-2xl font-bold text-center">Price Calculator</h2>
-      <p className="text-gray-500 text-center">Calculate Your Delivery Charge</p>
+      <p className="text-gray-500 text-center">
+        Calculate Your Delivery Charge
+      </p>
 
       {/* From Location */}
       <label className="block mt-4 text-gray-700">From</label>
@@ -60,7 +62,7 @@ export default function Price() {
         value={from}
         onChange={(e) => setFrom(e.target.value)}
       >
-        <option value="Dhaka City">Dhaka City</option>
+        <option value="Dhaka">Dhaka</option>
       </select>
 
       {/* Destination */}
@@ -70,7 +72,6 @@ export default function Price() {
         value={to}
         onChange={(e) => setTo(e.target.value)}
       >
-        <option value="Dhaka City">Dhaka City</option>
         <option value="Dhaka Sub-Urban">Dhaka Sub-Urban</option>
         {districtList.map((city, idx) => (
           <option key={idx} value={city}>

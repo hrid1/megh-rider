@@ -5,14 +5,16 @@ import FeatureSection from "./FeatureSection";
 import ReviewSection from "./ReviewSection";
 import ParcelTracking from "./ParcelTracking";
 import ChargeSection from "./ChargeSection";
+import CompanySection from "./CompanySection";
 
 const Homepage = () => {
   return (
     <div>
       <HeroSection />
       <ParcelTracking />
-      <ChargeSection/>
+      <CompanySection />
       <FeatureSection />
+      <ChargeSection />
       <ReviewSection />
       <FaqSection />
     </div>
