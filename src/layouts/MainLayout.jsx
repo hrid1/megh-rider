@@ -6,7 +6,7 @@ import Header from "../components/common/Header";
 
 const MainLayout = () => {
   return (
-    <div>
+    <div className="font-poppins">
       <Navbar />
       {/* <Header /> */}
       <div className=" mx-auto min-h-[calc(100vh-344px)]">

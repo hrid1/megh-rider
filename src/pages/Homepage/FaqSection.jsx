@@ -39,7 +39,7 @@ const FaqSection = () => {
     setIsPlusAccording((prevIndex) => (prevIndex === index ? null : index));
 
   return (
-    <div className="flex gap-3 flex-col max-w-4xl mx-auto my-4 md:my-6 px-2">
+    <div className="flex gap-3 flex-col max-w-4xl mx-auto my-4 md:my-12 px-2">
       <h2 className="text-center text-2xl md:text-4xl font-bold mb-4">FAQ</h2>
       {accordionData?.map((according, index) => (
         <article key={index} className="border border-[#e5eaf2] rounded p-3">

@@ -1,9 +1,17 @@
 import { useState } from "react";
-import { FaCloudUploadAlt, FaEye, FaEyeSlash } from "react-icons/fa";
+import {
+  FaCloudUploadAlt,
+  FaEye,
+  FaEyeSlash,
+  FaRegUser,
+  FaUser,
+} from "react-icons/fa";
 import districtList from "../../constants/districtList";
 import districtAreas from "../../constants/districtAres";
 import bankOptions from "../../constants/bankOptions";
 import { Link } from "react-router-dom";
+import { MdLockOutline, MdOutlineEmail } from "react-icons/md";
+import { CiLock } from "react-icons/ci";
 
 const SignUp = () => {
   const [isChecked, setIsChecked] = useState(false);
@@ -55,14 +63,17 @@ const SignUp = () => {
       setAreas(districtAreas[value] || []);
       setFormData((prev) => ({ ...prev, area: "" }));
     }
+    // Clear error for the field being updated
   };
 
+  
   const handleSubmit = (e) => {
     e.preventDefault();
+
     if (isChecked) {
-      console.table("form Data", formData);
+      console.table("Form Data", formData);
     } else {
-      alert("Check terms and contion");
+      alert("Check terms and condtion");
     }
   };
 
@@ -81,25 +92,30 @@ const SignUp = () => {
           <div>
             <label className="font-medium" htmlFor="">
               Company Name:
+              <span className="text-red-500"> *</span>
             </label>
+
             <input
+              required
               type="text"
               name="companyName"
               placeholder="Company Name"
-              className="w-full p-2 border rounded mt-2"
+              className="w-full p-2 border  rounded mt-2 focus:outline-none focus:invalid:border-red-500"
               onChange={handleChange}
             />
           </div>
           <div>
             <label className="font-medium" htmlFor="">
               Merchant Name:
+              <span className="text-red-500"> *</span>
             </label>
             <input
               type="text"
               name="merchantName"
               placeholder="Merchant Name"
-              className="w-full p-2 border rounded mt-2"
+              className="w-full p-2 border rounded mt-2  focus:outline-none focus:invalid:border-red-500"
               onChange={handleChange}
+              required
             />
           </div>
           <div>
@@ -117,13 +133,15 @@ const SignUp = () => {
           <div>
             <label className="font-medium" htmlFor="">
               Bussiness Address:
+              <span className="text-red-500"> *</span>
             </label>
             <textarea
               type="text"
               name="businessAddress"
               placeholder="Address of Your Pickup Location"
-              className="w-full p-2 border rounded mt-2 h-12"
+              className="w-full p-2 border rounded mt-2 h-12 focus:outline-none focus:invalid:border-red-500"
               onChange={handleChange}
+              required
             />
           </div>
         </div>
@@ -136,7 +154,7 @@ const SignUp = () => {
             <select
               name="district"
               className="p-2 border rounded w-full"
-              defaultValue="Dhaka" 
+              defaultValue="Dhaka"
               onChange={handleChange}
             >
               <option>Select District</option>
@@ -173,14 +191,16 @@ const SignUp = () => {
             {/* contact number */}
             <label className="font-medium" htmlFor="">
               Contact Number:
+              <span className="text-red-500"> *</span>
             </label>
 
             <input
-              type="tel"
+              type="number"
               name="contactNumber"
               placeholder="Contact Number"
-              className="w-full py-2 pl-16 border rounded mt-1.5 overflow-hidden "
+              className="w-full py-2 pl-16 border rounded mt-1.5 overflow-hidden focus:outline-none focus:invalid:border-red-500 appearance-none [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
               onChange={handleChange}
+              required
             />
 
             <span className="bg-slate-800 text-white px-4 py-2 rounded-l absolute top-7.5 left-0 border overflow-hidden">
@@ -192,14 +212,16 @@ const SignUp = () => {
             {/* owner number */}
             <label className="font-medium" htmlFor="">
               Owner Mobile Number:
+              <span className="text-red-500"> *</span>
             </label>
 
             <input
-              type="tel"
+              type="number"
               name="ownerNumber"
               placeholder="Owner Number"
-              className="w-full p-2 pl-16 border rounded mt-1.5 overflow-hidden"
+              className="w-full p-2 pl-16 border rounded mt-1.5 overflow-hidden focus:outline-none focus:invalid:border-red-500 appearance-none [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
               onChange={handleChange}
+              required
             />
 
             <span className="bg-slate-800 text-white px-4 py-2 rounded-l absolute top-7.5 left-0 border overflow-hidden">
@@ -270,11 +292,10 @@ const SignUp = () => {
           </select>
         </div>
 
-        <fieldset className="border p-4 rounded-md">
-          <legend className="font-semibold text-xl mb-2 block">
-            Bank Details
-          </legend>
+        <fieldset className="border p-3 rounded-md">
+          <legend className="font-semibold text-xl  block">Payment Info</legend>
 
+          <p className="font-semibold text-xl mb-2 block  ">Bank Details</p>
           <div className="grid grid-cols-2 gap-2">
             <div>
               <label className="font-medium block " htmlFor="">
@@ -398,7 +419,7 @@ const SignUp = () => {
                 Number:
               </label>
               <input
-                type=""
+                type="number"
                 name="mobileBankingNumber"
                 id="mobileBankingNumber"
                 placeholder="Mobile Number"
@@ -524,62 +545,84 @@ const SignUp = () => {
         {/* Email and Password */}
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div>
+          <div className="relative">
             <label className="font-medium" htmlFor="">
               Username
+              <span className="text-red-500"> *</span>
             </label>
 
             <input
               type="username"
               name="username"
               placeholder="Enter username "
-              className="w-full p-2 border rounded"
+              className="w-full p-2 border rounded pl-8 focus:outline-none focus:invalid:border-red-500"
               onChange={handleChange}
+              required
             />
+            <span className=" absolute left-2 bottom-3">
+              <FaRegUser className="text-lg" />
+            </span>
           </div>
-          <div>
+          <div className="relative">
             <label className="font-medium" htmlFor="">
               Email
+              <span className="text-red-500"> *</span>
             </label>
 
             <input
               type="email"
               name="email"
               placeholder="Enter email address"
-              className="w-full p-2 border rounded"
+              className="w-full p-2 border rounded pl-8 focus:outline-none focus:invalid:border-red-500"
               onChange={handleChange}
+              required
             />
+            <span className="absolute left-2 bottom-3">
+              <MdOutlineEmail className="text-xl" />
+            </span>
           </div>
           <div className="relative">
             <label className="font-medium" htmlFor="">
               Password
+              <span className="text-red-500"> *</span>
             </label>
             <input
               type={showPassword ? `text` : `password`}
               name="password"
               placeholder="Enter password"
-              className="w-full p-2 border rounded"
+              className="w-full p-2 border rounded pl-8 focus:outline-none focus:invalid:border-red-500"
               onChange={handleChange}
+              required
             />
 
-            <p onClick={handleShowPassword} className=" absolute top-9 right-1">
+            <p onClick={handleShowPassword} className=" absolute top-9 right-2">
               {showPassword ? <FaEye /> : <FaEyeSlash />}
             </p>
+
+            <span className="absolute left-2 bottom-3">
+              <MdLockOutline className="text-xl" />
+            </span>
           </div>
           <div className="relative">
             <label className="font-medium" htmlFor="">
               Confirm Password
+              <span className="text-red-500"> *</span>
             </label>
             <input
               type={showPassword ? `text` : `password`}
               name="confirmPassword"
               placeholder="Enter confirm password"
-              className="w-full p-2 border rounded"
+              className="w-full p-2 border rounded pl-8 focus:outline-none focus:invalid:border-red-500"
               onChange={handleChange}
+              required
             />
-            <p onClick={handleShowPassword} className=" absolute top-9 right-1">
+            <p onClick={handleShowPassword} className=" absolute top-9 right-2">
               {showPassword ? <FaEye /> : <FaEyeSlash />}
             </p>
+
+            <span className="absolute left-2 bottom-3">
+              <MdLockOutline className="text-xl" />
+            </span>
           </div>
         </div>
 
@@ -604,7 +647,7 @@ const SignUp = () => {
             Already have an account{" "}
             <Link
               className="text-orange-500 font-medium underline"
-              to={"/sign-in"}
+              to={"/login"}
             >
               Sign In
             </Link>

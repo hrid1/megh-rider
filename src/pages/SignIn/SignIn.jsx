@@ -49,7 +49,7 @@ const SignIn = () => {
               id="email"
               value={formData.email}
               onChange={handleChange}
-              placeholder="Email address"
+              placeholder="Email address / Username"
               className="peer border-border border rounded-md outline-none pl-10 pr-4 py-3 w-full focus:border-primary transition-colors duration-300"
             />
           </div>
@@ -95,7 +95,7 @@ const SignIn = () => {
 
         <p>
           Don't have an account{" "}
-          <Link className="text-orange-600 font-medium" to="/sign-up">
+          <Link className="text-orange-600 font-medium" to="/register">
             Register
           </Link>{" "}
           Here

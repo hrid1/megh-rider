@@ -61,13 +61,13 @@ const Navbar = () => {
 
         {/* action buttons */}
         <div className="items-center gap-3 flex">
-          <Link to="/sign-in">
-            <button className="py-2 px-4 rounded-full capitalize hover:text-orange-500 transition-all duration-300 flex font-medium">
-              Sign in
+          <Link to="/login">
+            <button className="py-2 px-4 rounded-full capitalize hover:text-orange-500 transition-all duration-300 flex font-medium cursor-pointer">
+              Login
             </button>
           </Link>
-          <Link to="/sign-up">
-            <button className="py-2 px-4 rounded-lg capitalize bg-orange-500 text-white hover:bg-orange-600 transition-all duration-300 flex font-medium">
+          <Link to="/register">
+            <button className="py-2 px-4 rounded-lg capitalize bg-orange-500 text-white hover:bg-orange-600 transition-all duration-300 flex font-medium cursor-pointer">
               Sign up
             </button>
           </Link>

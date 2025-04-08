@@ -14,8 +14,8 @@ const Homepage = () => {
       <ParcelTracking />
       <CompanySection />
       <FeatureSection />
-      <ChargeSection />
       <ReviewSection />
+      <ChargeSection />
       <FaqSection />
     </div>
   );

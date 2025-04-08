@@ -1,7 +1,7 @@
 export default function ParcelTracking() {
   return (
-    <div className="flex items-center justify-center min-h-[20vh] px-4 my-6 md:my-12">
-      <div className="w-full max-w-2xl bg-white p-4 shadow-lg rounded-lg border border-gray-200">
+    <div className="flex items-center justify-center min-h-[20vh] px-4 my-4 ">
+      <div className="w-full max-w-2xl bg-amber-50/20 p-4 shadow-lg rounded-lg border border-gray-200">
         <p className="text-gray-700 text-sm sm:text-base font-medium mb-2 sm:text-center text-left">
           Track your parcel to get detailed updates
         </p>
@@ -11,7 +11,7 @@ export default function ParcelTracking() {
           <input
             type="text"
             placeholder="Enter Tracking ID"
-            className="w-full p-3 text-gray-600 outline-none "
+            className="w-full px-3 text-gray-600 outline-none "
           />
 
           {/* Button */}

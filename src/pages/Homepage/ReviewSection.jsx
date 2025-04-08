@@ -1,17 +1,20 @@
 import React from "react";
 import Marquee from "react-fast-marquee";
-import { FaUser } from "react-icons/fa";
 import { SiComma } from "react-icons/si";
 import logo1 from "../../assets/company/6_YARDS_STORY-removebg-preview.png";
-import logo2 from "../../assets/company/Ceremonial_Attire-removebg-preview.png";
-import logo3 from "../../assets/company/SAFE_HAVEN_by_Nicoshia_SHBN-removebg-preview.png";
-import logo4 from "../../assets/company/Smartynerdy-removebg-preview.png";
-import logo5 from "../../assets/company/Kitty_s_Collection-removebg-preview.png";
-import logo6 from "../../assets/company/Eeha-removebg-preview.png";
-import logo7 from "../../assets/company/Wardrobe-removebg-preview-removebg-preview.png";
-import logo8 from "../../assets/company/Shampurna-_সম্পূর্ণা_-removebg-preview.png";
-import logo9 from "../../assets/company/Gothiya-removebg-preview.png";
-import logo10 from "../../assets/company/Lopa_Jewelleries-removebg-preview.png";
+import logo2 from "../../assets/company/Wardrobe-removebg-preview-removebg-preview.png";
+import logo9 from "../../assets/company/Kitty_s_Collection-removebg-preview.png";
+import logo6 from "../../assets/company/Shampurna-_সম্পূর্ণা_-removebg-preview.png";
+import logo3 from "../../assets/company/বিবির_সিন্দুক_-_BiBir_Shinduk__Logo-removebg-preview.png";
+import logo4 from "../../assets/company/Game_of_Nature-removebg-preview.png";
+import logo5 from "../../assets/company/Lopa_Jewelleries-removebg-preview.png";
+import logo7 from "../../assets/company/Rongdhonu_Creation__রংধনু_ক্রিয়েশন-removebg-preview.png";
+import logo8 from "../../assets/company/Gothiya-removebg-preview.png";
+import logo10 from "../../assets/company/Smartynerdy-removebg-preview.png";
+import logo11 from "../../assets/company/Kitty_s_Collection-removebg-preview.png";
+import logo12 from "../../assets/company/SAFE_HAVEN_by_Nicoshia_SHBN-removebg-preview.png";
+import logo13 from "../../assets/company/Eeha-removebg-preview.png";
+import logo14 from "../../assets/company/AZM_Dream_House-removebg-preview.png";
 
 const reviews = [
   {
@@ -52,15 +55,16 @@ const reviews = [
     name: "Lopa Haque Azam",
     designation: "Lopa Jewelleries",
     category: "Jewellery/watches",
-    icon: logo10,
+    icon: logo5,
   },
+
   {
     quote:
       "I have been associated with Meghswar Courier since I started my business. I deliver parcels in Dhaka through them. Except for 2/1 isolated incidents, there has been no significant damage so far. Their delivery is very fast and swift. The delivery men are very sincere. And they clear the transaction on time.",
     name: "Suraiya Sumi",
     designation: "Shampurna- সম্পূর্ণা",
     category: "Clothing",
-    icon: logo7,
+    icon: logo6,
   },
   {
     quote:
@@ -68,7 +72,7 @@ const reviews = [
     name: "Shanaz Shultana",
     designation: "Rongdhonu Creation : রংধনু ক্রিয়েশন",
     category: "Clothing",
-    icon: "🗨️",
+    icon: logo7,
   },
   {
     quote:
@@ -76,7 +80,7 @@ const reviews = [
     name: "Antara Jahan",
     designation: "Gothiya গথিয়া",
     category: "Boutique",
-    icon: logo9,
+    icon: logo8,
   },
   {
     quote:
@@ -84,24 +88,24 @@ const reviews = [
     name: "Saraban Tahura Nipa",
     designation: "Kitty’s Collection",
     category: "Jewellery/watches",
-    icon: logo5,
+    icon: logo9,
   },
-
   {
     quote:
       "For the last 7 years, we (Smartynerdy) have been using Meghswar Courier to deliver products all over Dhaka city. The reason why we prefer Meghswar over other courier services is that its process is easy, payment is regular, and most importantly, we can get an immediate solution in any emergency situation by directly contacting the rider or back office, which is difficult to get so sincerely from any other courier.",
     name: "Istiaque Al Mahmud",
     designation: "Smartynerdy",
     category: "Baby goods",
-    icon: logo6,
+    icon: logo10,
   },
+
   {
     quote:
       "Their return management is the best in Dhaka. While many couriers simply return products after a few calls to customers, MeghSwar takes the extra step of keeping the package with them and maintaining communication until delivery is successfully completed. Overall, MeghSwar Courier provides a highly personalized and reliable service, making them my top recommendation for any business looking for a dependable delivery partner.",
     name: "Saraban Tahura Nipa",
     designation: "Kitty’s Collection",
     category: "Jewellery/watches",
-    icon: logo5,
+    icon: logo11,
   },
   {
     quote:
@@ -109,7 +113,7 @@ const reviews = [
     name: "Nicoshia Chakma",
     designation: "SAFE HAVEN by Nicoshia",
     category: "Clothing",
-    icon: logo8,
+    icon: logo12,
   },
   {
     quote:
@@ -117,7 +121,7 @@ const reviews = [
     name: "Moury Najnin",
     designation: "Eeha",
     category: "Clothing",
-    icon: "🗨️",
+    icon: logo13,
   },
   {
     quote:
@@ -125,7 +129,7 @@ const reviews = [
     name: "Sumaya Bristi Samad",
     designation: "AZM Dream House",
     category: "Retail",
-    icon: "🗨️",
+    icon: logo14,
   },
 ];
 
@@ -154,7 +158,11 @@ const ReviewSection = () => {
               <div className="border border-gray-300 p-2 w-12 h-12 overflow-hidden rounded-full bg-gray-100">
                 {/* <FaUser className="text-2xl text-gray-600" />
                  */}
-                <img className="w-full h-full object-cover" src={review.icon} alt="" />
+                <img
+                  className="w-full h-full object-cover"
+                  src={review.icon}
+                  alt=""
+                />
               </div>
               <div>
                 <div className="text-gray-900 font-semibold text-lg">

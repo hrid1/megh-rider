@@ -18,7 +18,7 @@ const HeroSection = () => {
             Simple Tracking, Quick Payments, and No Hassles.
           </p>
 
-          <Link to="/sign-up">
+          <Link to="/register">
             <button class="bg-orange-400 text-white px-6 py-3 rounded-lg shadow-md hover:bg-orange-500 transition font-semibold">
               Become a Merchant
             </button>

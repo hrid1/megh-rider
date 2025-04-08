@@ -12,10 +12,9 @@ import logo10 from "../../assets/company/Lopa_Jewelleries-removebg-preview.png";
 const CompanySection = () => {
   return (
     <div>
-      <section className="p-6 dark:bg-white dark:text-gray-800">
+      <section className=" dark:bg-white dark:text-gray-800">
         <div className="container p-4 mx-auto text-center">
-          <h2 className="text-4xl font-bold">
-            Trusted by </h2>
+          <h2 className="text-4xl font-bold">Trusted by </h2>
         </div>
         <div className="container grid grid-cols-5 justify-center mx-auto dark:text-gray-600">
           <div className="flex justify-center  p-4 align-middle ">

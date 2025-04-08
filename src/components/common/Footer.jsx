@@ -11,7 +11,7 @@ import { FaFacebook, FaInstagram, FaXTwitter } from "react-icons/fa6";
 
 const Footer = () => {
   return (
-    <footer className="bg-orange-50 shadow-md rounded-xl w-full p-6 sm:p-9">
+    <footer className="bg-orange-50 shadow-md rounded-xl w-full p-3.5 sm:p-4 sm:pt-6">
       <div className="flex justify-between gap-[20px] flex-col sm:flex-row flex-wrap max-w-[1480px] mx-auto">
         <div className="w-full sm:w-[25%] ">
           <img src={textLogo} alt="logo" className="w-[150px] mb-[10px]" />
@@ -21,7 +21,7 @@ const Footer = () => {
           >
             <span>
               <a className="text-[0.9rem] flex items-center gap-[8px] cursor-pointer">
-                <IoLocationOutline className="text-[1.2rem]" />
+                <IoLocationOutline className="text-[2rem]" />
                 {
                   "Address : HQ- 601, Road - 09, Adabor, Mohammadpur, Dhaka 1207"
                 }
@@ -29,13 +29,13 @@ const Footer = () => {
             </span>
             <span>
               <a className="text-[0.9rem] flex items-center gap-[8px] hover:text-blue-400 cursor-pointer">
-                <MdOutlineEmail className="text-[1.1rem]" />
+                <MdOutlineEmail className="text-[1.2rem]" />
                 info@meghswarcourier.com
               </a>
             </span>
             <span>
               <a className="text-[0.9rem] flex items-center gap-[8px] hover:text-blue-400 cursor-pointer">
-                <MdOutlineLocalPhone className="text-[1.1rem]" />
+                <MdOutlineLocalPhone className="text-[1.2rem]" />
                 +8809601010002
               </a>
             </span>
@@ -48,7 +48,7 @@ const Footer = () => {
           </h3>
           <div className="flex text-black flex-col gap-[10px] font-medium text-sm">
             <Link
-              to="/sign-up"
+              to="/register"
               className="text-[0.9rem] text-gray-500 hover:text-[#f1763b]
  cursor-pointer transition-all duration-200"
             >
@@ -56,7 +56,7 @@ const Footer = () => {
             </Link>
 
             <Link
-              to="/aboutus"
+              to="/contact"
               className="text-[0.9rem] text-gray-500 hover:text-[#f1763b]
  cursor-pointer transition-all duration-200"
             >
@@ -120,8 +120,6 @@ const Footer = () => {
             >
               <FaXTwitter />
             </Link>
-
-
           </div>
 
           {/* store icon with link */}
@@ -137,6 +135,10 @@ const Footer = () => {
           </div>
         </div>
       </div>
+      <p className="text-sm w-full text-center text-gray-600">
+        © {new Date().getFullYear()} Copyrights by Meghswar Courier. All rights
+        reserved.
+      </p>
     </footer>
   );
 };

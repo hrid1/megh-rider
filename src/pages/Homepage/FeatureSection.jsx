@@ -2,13 +2,13 @@ const features = [
   {
     title: "Daily pickup, no limits",
     description:
-      "Steadfast Courier gives you the opportunity of unlimited pickup.",
+      "Meghswar Courier gives you the opportunity of unlimited pickup.",
     icon: "📦",
   },
   {
     title: "Cash on Delivery",
     description:
-      "At Steadfast Courier we will collect the cash on behalf of you.",
+      "At Meghswar Courier we will collect the cash on behalf of you.",
     icon: "💰",
   },
   {
@@ -26,7 +26,7 @@ const features = [
   {
     title: "Real-Time Tracking",
     description:
-      "Steadfast Courier provides a unique tracking code for your every consignment.",
+      "Meghswar Courier provides a unique tracking code for your every consignment.",
     icon: "📍",
   },
   {
@@ -40,7 +40,9 @@ const features = [
 const FeatureSection = () => {
   return (
     <section className="my-8 md:my-12">
-        <h2 className="text-center font-bold text-2xl md:text-3xl my-4">Why Choose Us</h2>
+      <h2 className="text-center font-bold text-2xl md:text-3xl my-4">
+        Why Choose Us
+      </h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-6 place-items-center md:w-5/6 mx-auto">
         {features.map((feature, index) => (
           <div
