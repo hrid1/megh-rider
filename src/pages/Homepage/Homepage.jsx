@@ -6,6 +6,7 @@ import ReviewSection from "./ReviewSection";
 import ParcelTracking from "./ParcelTracking";
 import ChargeSection from "./ChargeSection";
 import CompanySection from "./CompanySection";
+import Customar from "./Customar";
 
 const Homepage = () => {
   return (
@@ -13,6 +14,7 @@ const Homepage = () => {
       <HeroSection />
       <ParcelTracking />
       <CompanySection />
+      <Customar />
       <FeatureSection />
       <ReviewSection />
       <ChargeSection />

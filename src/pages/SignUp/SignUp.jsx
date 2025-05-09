@@ -14,12 +14,12 @@ import { MdLockOutline, MdOutlineEmail } from "react-icons/md";
 import { CiLock } from "react-icons/ci";
 
 const SignUp = () => {
-  const [isChecked, setIsChecked] = useState(false);
+  const [isChecked, setIsChecked] = useState(true);
   const [showPassword, setShowPassword] = useState(false);
 
   const [formData, setFormData] = useState({
     companyName: "",
-    merchantName: "",
+    OwnerName: "",
     fullAddress: "",
     businessAddress: "",
     district: "Dhaka",
@@ -66,7 +66,6 @@ const SignUp = () => {
     // Clear error for the field being updated
   };
 
-  
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -84,10 +83,10 @@ const SignUp = () => {
   };
   return (
     <div className="max-w-4xl mx-auto p-6 bg-white shadow-xl rounded-lg my-2">
-      <h2 className="text-2xl font-bold mb-4 text-center">
+      <h2 className="text-2xl font-bold mb-2.5 text-center">
         Merchant Registration Form
       </h2>
-      <form onSubmit={handleSubmit} className="space-y-4">
+      <form onSubmit={handleSubmit} className="space-y-2">
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
             <label className="font-medium" htmlFor="">
@@ -100,20 +99,20 @@ const SignUp = () => {
               type="text"
               name="companyName"
               placeholder="Company Name"
-              className="w-full p-2 border  rounded mt-2 focus:outline-none focus:invalid:border-red-500"
+              className="w-full p-2 border  rounded mt-0.5 focus:outline-none focus:invalid:border-red-500"
               onChange={handleChange}
             />
           </div>
           <div>
             <label className="font-medium" htmlFor="">
-              Merchant Name:
+              Owner's Name:
               <span className="text-red-500"> *</span>
             </label>
             <input
               type="text"
-              name="merchantName"
-              placeholder="Merchant Name"
-              className="w-full p-2 border rounded mt-2  focus:outline-none focus:invalid:border-red-500"
+              name="OwnerName"
+              placeholder="Owner's Name"
+              className="w-full p-2 border rounded mt-0.5  focus:outline-none focus:invalid:border-red-500"
               onChange={handleChange}
               required
             />
@@ -126,7 +125,7 @@ const SignUp = () => {
               type="text"
               name="fullAddress"
               placeholder="Full Address"
-              className="w-full p-2 border rounded mt-2 h-12"
+              className="w-full p-2 border rounded mt-0.5 h-12"
               onChange={handleChange}
             />
           </div>
@@ -139,7 +138,7 @@ const SignUp = () => {
               type="text"
               name="businessAddress"
               placeholder="Address of Your Pickup Location"
-              className="w-full p-2 border rounded mt-2 h-12 focus:outline-none focus:invalid:border-red-500"
+              className="w-full p-2 border rounded mt-0.5 h-12 focus:outline-none focus:invalid:border-red-500"
               onChange={handleChange}
               required
             />
@@ -194,15 +193,34 @@ const SignUp = () => {
               <span className="text-red-500"> *</span>
             </label>
 
-            <input
-              type="number"
+            {/* <input
+              type="tel"
               name="contactNumber"
               placeholder="Contact Number"
-              className="w-full py-2 pl-16 border rounded mt-1.5 overflow-hidden focus:outline-none focus:invalid:border-red-500 appearance-none [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
+              className="w-full py-2 pl-18 border rounded mt-1.5 overflow-hidden focus:outline-none focus:invalid:border-red-500 "
               onChange={handleChange}
+              pattern="[0-9]*"
+              inputMode="numeric"
+              maxLength={11}
+              required
+            /> */}
+
+            <input
+              type="text"
+              name="contactNumber"
+              placeholder="Contact Number"
+              className="w-full py-2 pl-18 border rounded mt-1.5 overflow-hidden focus:outline-none focus:invalid:border-red-500 "
+              inputMode="numeric"
+              maxLength={11}
+              value={formData.contactNumber}
+              onChange={(e) => {
+                const numbersOnly = e.target.value.replace(/\D/g, "");
+                handleChange({
+                  target: { name: "contactNumber", value: numbersOnly },
+                });
+              }}
               required
             />
-
             <span className="bg-slate-800 text-white px-4 py-2 rounded-l absolute top-7.5 left-0 border overflow-hidden">
               +88
             </span>
@@ -211,16 +229,24 @@ const SignUp = () => {
           <div className="relative">
             {/* owner number */}
             <label className="font-medium" htmlFor="">
-              Owner Mobile Number:
+              Owner's Mobile Number:
               <span className="text-red-500"> *</span>
             </label>
 
             <input
-              type="number"
+              type="text"
               name="ownerNumber"
               placeholder="Owner Number"
-              className="w-full p-2 pl-16 border rounded mt-1.5 overflow-hidden focus:outline-none focus:invalid:border-red-500 appearance-none [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
-              onChange={handleChange}
+              className="w-full p-2 pl-18 border rounded mt-1.5 overflow-hidden focus:outline-none focus:invalid:border-red-500"
+              inputMode="numeric"
+              maxLength={11}
+              value={formData.ownerNumber}
+              onChange={(e) => {
+                const onlyNumbers = e.target.value.replace(/\D/g, "");
+                handleChange({
+                  target: { name: "ownerNumber", value: onlyNumbers },
+                });
+              }}
               required
             />
 
@@ -246,7 +272,7 @@ const SignUp = () => {
             Https://
           </span>
         </div>
-        <div className="relative">
+        {/* <div className="relative">
           <label className="font-medium" htmlFor="">
             Website Link
           </label>
@@ -260,286 +286,35 @@ const SignUp = () => {
           <span className="bg-slate-800 text-white px-4 py-2 rounded-l absolute  left-0 border overflow-hidden">
             Https://
           </span>
-        </div>
-        <div>
-          <label className="font-medium" htmlFor="">
-            Your Products Type
-          </label>
-          <input
-            type="url"
-            name="productType"
-            placeholder="What kind of products do you sell? "
-            className="w-full p-2 border rounded"
-            onChange={handleChange}
-          />
-        </div>
+        </div> */}
 
-        {/* Payment method */}
-        <div>
-          <label className="font-medium " htmlFor="">
-            Default Payment Method:
-          </label>
-          <br />
-          <select
-            name="paymentMethod"
-            className="p-2 border rounded w-full"
-            onChange={handleChange}
-          >
-            <option>Select Method</option>
-            <option value={"cash"}>Cash</option>
-            <option value={"bank"}>Bank</option>
-            <option value={"mobilebank"}>Mobile Banking</option>
-          </select>
-        </div>
-
-        <fieldset className="border p-3 rounded-md">
-          <legend className="font-semibold text-xl  block">Payment Info</legend>
-
-          <p className="font-semibold text-xl mb-2 block  ">Bank Details</p>
-          <div className="grid grid-cols-2 gap-2">
-            <div>
-              <label className="font-medium block " htmlFor="">
-                Bank Name
-              </label>
-              <select
-                name="bankName"
-                className="p-2 border rounded w-full"
-                onChange={handleChange}
-              >
-                <option value="">Select Bank</option>
-                {bankOptions.map((bank, index) => (
-                  <option key={index} value={bank}>
-                    {bank}
-                  </option>
-                ))}
-              </select>
-            </div>
-            <div>
-              <label className="font-medium block " htmlFor="">
-                Branch Name
-              </label>
-              <input
-                type="text"
-                name="branchName"
-                placeholder="Branch Name"
-                className="p-2 border rounded w-full"
-                onChange={handleChange}
-              />
-            </div>
-            <div>
-              <label className="font-medium block " htmlFor="">
-                Account Holder Name
-              </label>
-              <input
-                type="text"
-                name="accountName"
-                placeholder="Account Name"
-                className="p-2 border rounded w-full"
-                onChange={handleChange}
-              />
-            </div>
-            <div>
-              <label className="font-medium block " htmlFor="">
-                Account Number
-              </label>
-              <input
-                type="number"
-                name="accountNumber"
-                placeholder="Account Number"
-                className="p-2 border rounded w-full  appearance-none [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
-                onChange={handleChange}
-              />
-            </div>
-            <div>
-              <label className="font-medium block" htmlFor="">
-                Routing Number:
-              </label>
-              <input
-                type="number"
-                name="routingNumber"
-                placeholder="Routing Number"
-                className="p-2 border rounded w-full appearance-none [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
-                onChange={handleChange}
-              />
-            </div>
-            <div>
-              <label className="font-medium block" htmlFor="">
-                Note:
-              </label>
-              <input
-                type="text"
-                name="note"
-                placeholder="Write Note"
-                className="p-2 border rounded w-full"
-                onChange={handleChange}
-              />
-            </div>
-          </div>
-
-          <label className="font-semibold text-xl mb-2 block mt-2 " htmlFor="">
-            Mobile Banking Details
-          </label>
-
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
-            <div>
-              <label className="font-medium" htmlFor="mobileBankingProvider">
-                Provider:
-              </label>
-              <br />
-              <select
-                name="mobileBankingProvider"
-                id="mobileBankingProvider"
-                className="p-2 border rounded w-full"
-                onChange={handleChange}
-              >
-                <option value="">Select</option>
-                <option value="bkash">bKash</option>
-                <option value="nagad">Nagad</option>
-                <option value="upay">Upay</option>
-              </select>
-            </div>
-            <div>
-              <label className="font-medium" htmlFor="mobileBankingType">
-                Type:
-              </label>
-              <br />
-              <select
-                name="mobileBankingType"
-                id="mobileBankingType"
-                className="p-2 border rounded w-full"
-                onChange={handleChange}
-              >
-                <option value="">Select</option>
-                <option value="Personal">Personal</option>
-                <option value="Business">Business</option>
-              </select>
-            </div>
-            <div>
-              <label className="font-medium" htmlFor="mobileBankingNumber">
-                Number:
-              </label>
-              <input
-                type="number"
-                name="mobileBankingNumber"
-                id="mobileBankingNumber"
-                placeholder="Mobile Number"
-                className="p-2 border rounded w-full appearance-none [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
-                onChange={handleChange}
-              />
-            </div>
-          </div>
-        </fieldset>
-
-        <label className="font-medium" htmlFor="mobileBankingNumber">
-          NID Number:
-        </label>
-        <input
-          type="number"
-          name="nid"
-          placeholder="Enter the NID Number"
-          className="w-full p-2 border rounded appearance-none [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
-          onChange={handleChange}
-        />
-        {/* NID Upload */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-          {/* fontside */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
-            <label className="font-medium" htmlFor="nidUploadFront">
-              NID (FrontSide):
+            <label className="font-medium" htmlFor="">
+              Your Products Type
             </label>
-            <label
-              htmlFor="nidUploadFront"
-              className="flex items-center justify-between w-full p-4 border-2 border-dashed rounded-lg cursor-pointer hover:border-teal-500 transition"
-            >
-              <div className="flex items-center gap-2">
-                <FaCloudUploadAlt className="w-8 h-8 text-gray-500" />
-                <span className="text-gray-600 text-sm">
-                  {formData.nidUploadFront?.name || "Upload NID Frontside"}
-                </span>
-              </div>
-              <input
-                type="file"
-                name="nidUploadFront"
-                id="nidUploadFront"
-                className="hidden"
-                onChange={handleChange}
-              />
-            </label>
-          </div>
-          {/* backside */}
-          <div>
-            <label className="font-medium" htmlFor="nidUploadBack">
-              NID (BackSide):
-            </label>
-            <label
-              htmlFor="nidUploadBack"
-              className="flex items-center justify-between w-full p-4 border-2 border-dashed rounded-lg cursor-pointer hover:border-teal-500 transition"
-            >
-              <div className="flex items-center gap-2">
-                <FaCloudUploadAlt className="w-8 h-8 text-gray-500" />
-                <span className="text-gray-600 text-sm">
-                  {formData.nidUploadBack?.name || "Upload NID Backside"}
-                </span>
-              </div>
-              <input
-                type="file"
-                name="nidUploadBack"
-                id="nidUploadBack"
-                className="hidden"
-                onChange={handleChange}
-              />
-            </label>
-          </div>
-        </div>
-
-        {/* Trade License */}
-        <div>
-          <label className="font-medium" htmlFor="tradeLicense">
-            Trade License:
-          </label>
-          <label
-            htmlFor="tradeLicense"
-            className="flex items-center border border-gray-600 rounded-lg overflow-hidden bg-gray-50 w-full cursor-pointer"
-          >
-            <div className="bg-gray-800 text-gray-100 px-4 py-2 hover:bg-gray-900">
-              Choose_File
-            </div>
             <input
-              type="file"
-              name="tradeLicense"
-              id="tradeLicense"
-              className="hidden"
+              type="url"
+              name="productType"
+              placeholder="What kind of products do you sell? "
+              className="w-full p-2 border rounded"
               onChange={handleChange}
             />
-            <span className="px-4 py-2 text-gray-500 truncate w-full">
-              {formData.tradeLicense?.name || "No file chosen"}
-            </span>
-          </label>
-        </div>
+          </div>
 
-        {/* TIN Certificate */}
-        <div>
-          <label className="font-medium" htmlFor="tinCertificate">
-            TIN Certificate:
-          </label>
-          <label
-            htmlFor="tinCertificate"
-            className="flex items-center border border-gray-600 rounded-lg overflow-hidden bg-gray-50 w-full cursor-pointer"
-          >
-            <div className="bg-gray-800 text-gray-100 px-4 py-2 hover:bg-gray-900">
-              Choose_File
-            </div>
+          <div>
+            <label className="font-medium block " htmlFor="referral">
+              Referred By:
+            </label>
             <input
-              type="file"
-              name="tinCertificate"
-              id="tinCertificate"
-              className="hidden"
+              type="text"
+              id="referral"
+              name="refer"
+              placeholder="Enter referral person's name"
+              className="w-full p-2 border rounded"
               onChange={handleChange}
             />
-            <span className="px-4 py-2 text-gray-500 truncate w-full">
-              {formData.tinCertificate?.name || "No file chosen"}
-            </span>
-          </label>
+          </div>
         </div>
 
         {/* Email and Password */}

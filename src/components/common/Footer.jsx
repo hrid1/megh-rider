@@ -1,5 +1,5 @@
 import React from "react";
-import textLogo from "../../assets/textLogo2.png";
+import textLogo from "../../assets/logo/meghswar-logo.svg";
 import appstore from "../../assets/store/appstore2.png";
 import playstore from "../../assets/store/playstore.png";
 
@@ -14,7 +14,7 @@ const Footer = () => {
     <footer className="bg-orange-50 shadow-md rounded-xl w-full p-3.5 sm:p-4 sm:pt-6">
       <div className="flex justify-between gap-[20px] flex-col sm:flex-row flex-wrap max-w-[1480px] mx-auto">
         <div className="w-full sm:w-[25%] ">
-          <img src={textLogo} alt="logo" className="w-[150px] mb-[10px]" />
+          <img src={textLogo} alt="logo" className="w-[180px] mb-[10px]" />
           <div
             className="flex flex-col gap-[10px] text-[#f1763b]
 "

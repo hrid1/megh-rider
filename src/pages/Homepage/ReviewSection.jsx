@@ -141,7 +141,10 @@ const ReviewSection = () => {
       </h2>
 
       {/* Left Blur Effect */}
-      <div className="absolute left-0 top-0 h-full w-16 bg-gradient-to-r from-gray-50 to-transparent z-10"></div>
+      <div
+        data-aos="fade-up"
+        className="absolute left-0 top-0 h-full w-16 bg-gradient-to-r from-gray-50 to-transparent z-10"
+      ></div>
 
       <Marquee speed={50} pauseOnHover>
         {reviews.map((review, index) => (

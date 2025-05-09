@@ -6,6 +6,8 @@ import MainLayout from "./layouts/MainLayout.jsx";
 import { RouterProvider } from "react-router-dom";
 import router from "./routes/Route.jsx";
 
+
+
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <RouterProvider router={router} />

@@ -13,7 +13,7 @@ const PriceCard = ({ item }) => {
 
   console.log(item);
   return (
-    <div className="w-full md:w-[95%] relative rounded-md overflow-hidden bg-white shadow-2xl p-4 hover:scale-105 transition duration-300">
+    <div className="w-full md:w-[95%] relative rounded-xl overflow-hidden bg-white shadow-2xl p-4 hover:scale-105 transition duration-300">
       <span className="bg-red-500 rounded-sm px-3 py-1.5 text-[0.9rem] text-white absolute top-3 left-3 font-bold">
         {base_price} TK
       </span>
@@ -41,7 +41,7 @@ const PriceCard = ({ item }) => {
         </p>
         <p className="text-[1rem] text-gray-600 mt-1">
           After {base_weight}, {additional_price_per_half_kg} Taka will be added
-          per 0.5 KG
+          per 1 KG
         </p>
 
         <h3 className="text-[1.2rem] font-medium text-gray-800 mt-4">

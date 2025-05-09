@@ -20,7 +20,7 @@ export default function Price() {
   // Price slabs per category
   const priceSlabs = {
     sameCity: 70, // Base price for Same City (Regular Day)
-    subCity: 100,
+    subCity: 90,
     othersCity: 120,
   };
 
@@ -34,23 +34,42 @@ export default function Price() {
 
     setErrorMessage("");
 
-    const category = getPriceCategory(from, to);
-    let basePrice = priceSlabs[category];
+    const categoryType = getPriceCategory(from, to);
+    let basePrice = priceSlabs[categoryType];
 
-    // Increase base price for Same Day in Same City
-    if (serviceType === "Same Day" && category === "sameCity") {
-      basePrice = 100;
+    // Same Day price override for same city
+    if (serviceType === "Same Day" && categoryType === "sameCity") {
+      basePrice = 110;
     }
 
-    const weightFactor = Math.ceil(weight / 0.5) - 1; // Each 0.5kg increases price
-    const newPrice = basePrice + weightFactor * 10;
+    let extraCharge = 0;
 
+    if (categoryType === "sameCity") {
+      const extraUnits = Math.ceil((weight - 0.5) / 0.5);
+      extraCharge = weight > 0.5 ? extraUnits * 10 : 0;
+    } else if (categoryType === "subCity") {
+      if (weight > 1) {
+        const extraUnits = Math.ceil((weight - 1) / 1);
+        extraCharge = weight > 1 ? extraUnits * 20 + 10 : 0;
+      } else {
+        extraCharge = weight > 0.5 ? 10 : 0;
+      }
+    } else if (categoryType === "othersCity") {
+      if (weight > 1) {
+        const extraUnits = Math.ceil((weight - 1) / 1);
+        extraCharge = weight > 1 ? extraUnits * 20 + 10 : 0;
+      } else {
+        extraCharge = weight > 0.5 ? 10 : 0;
+      }
+    }
+
+    const newPrice = basePrice + extraCharge;
     setPrice(newPrice);
   };
 
   return (
     <section>
-      <div className="max-w-2xl mx-auto p-6 bg-white rounded-lg shadow-xl my-6">
+      <div className="max-w-2xl mx-auto p-6 bg-white rounded-lg shadow-xl my-2">
         <h2 className="text-2xl font-bold text-center">Price Calculator</h2>
         <p className="text-gray-500 text-center">
           Calculate Your Delivery Charge
@@ -120,21 +139,21 @@ export default function Price() {
         {/* Calculate Button */}
         <button
           onClick={calculatePrice}
-          className="mt-6 w-full bg-orange-400 text-white px-4 py-2 rounded-md hover:bg-orange-500 transition cursor-pointer"
+          className="mt-4 w-full bg-orange-400 text-white px-4 py-2 rounded-md hover:bg-orange-500 transition cursor-pointer"
         >
           Calculate Price
         </button>
 
         {/* Error Message */}
         {errorMessage && (
-          <div className="mt-4 p-3 bg-gray-200 text-red-600 font-semibold text-center rounded-md">
+          <div className="mt-2 p-3 bg-gray-200 text-red-600 font-semibold text-center rounded-md">
             {errorMessage}
           </div>
         )}
 
         {/* Price Output */}
         {price !== null && (
-          <div className="mt-6 p-4 bg-gray-100 text-center font-bold text-lg rounded-md">
+          <div className="mt-4 p-4 bg-gray-100 text-center font-bold text-lg rounded-md">
             {price} TK
           </div>
         )}

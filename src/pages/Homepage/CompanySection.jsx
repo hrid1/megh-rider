@@ -8,15 +8,18 @@ import logo6 from "../../assets/company/Eeha-removebg-preview.png";
 import logo7 from "../../assets/company/Wardrobe-removebg-preview-removebg-preview.png";
 import logo8 from "../../assets/company/Shampurna-_সম্পূর্ণা_-removebg-preview.png";
 import logo9 from "../../assets/company/Gothiya-removebg-preview.png";
-import logo10 from "../../assets/company/Lopa_Jewelleries-removebg-preview.png";
+import logo10 from "../../assets/company/AZM_Dream_House-removebg-preview.png";
 const CompanySection = () => {
   return (
     <div>
-      <section className=" dark:bg-white dark:text-gray-800">
+      <section className=" dark:bg-white dark:text-gray-800 ">
         <div className="container p-4 mx-auto text-center">
           <h2 className="text-4xl font-bold">Trusted by </h2>
         </div>
-        <div className="container grid grid-cols-5 justify-center mx-auto dark:text-gray-600">
+        <div
+          data-aos="zoom"
+          className="container grid grid-cols-5 justify-center mx-auto dark:text-gray-600"
+        >
           <div className="flex justify-center  p-4 align-middle ">
             <img className="w-32 h- 18" src={logo1} alt="" />
           </div>

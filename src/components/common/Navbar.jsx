@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import textLogo from "../../assets/textLogo2.png";
+import textLogo from "../../assets/logo/meghswar-logo.svg";
 
 // react icons
 import { IoIosSearch } from "react-icons/io";
@@ -30,28 +30,32 @@ const Navbar = () => {
 
   return (
     <div
-      className={`inset-x-0  z-50 transition-all duration-300 ${
+      className={`inset-x-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-white opacity-95 shadow-xl top-0 sticky shadow-xl "
+          ? "bg-white opacity-95 shadow-xl top-0 sticky"
           : "bg-amber-50"
       }`}
     >
       <nav className="flex items-center justify-between w-full relative container px-6 py-4 mx-auto">
-        {/* logo */}
+        {/* Logo */}
         <Link to="/">
-          <img src={textLogo} alt="logo" className="md:w-36 w-24" />
+          <img src={textLogo} alt="logo" className="md:w-68 w-40" />
         </Link>
 
-        {/* nav links */}
+        {/* Nav Links */}
         <ul className="items-center gap-5 text-base text-gray-700 md:flex hidden">
           {["home", "map", "about us", "contact", "price"].map(
             (item, index) => (
               <NavLink
                 key={index}
                 to={item === "home" ? "/" : `/${item.replace(" ", "")}`}
-                className="relative before:w-0 hover:before:w-full before:bg-orange-500
-              before:h-[2px] before:transition-all before:duration-300 before:absolute before:rounded-full 
-              before:bottom-[-2px] hover:text-orange-500 transition-all duration-300 before:left-0 capitalize font-medium"
+                className={({ isActive }) =>
+                  `relative capitalize font-medium transition-all duration-300 ${
+                    isActive
+                      ? "text-orange-500 after:content-[''] after:absolute after:w-full after:h-[2px] after:bg-orange-500 after:bottom-[-2px] after:left-0"
+                      : "hover:text-orange-500 after:content-[''] after:absolute after:w-0 after:h-[2px] after:bg-orange-500 after:bottom-[-2px] after:left-0 hover:after:w-full after:transition-all after:duration-300"
+                  }`
+                }
               >
                 {item}
               </NavLink>
@@ -59,7 +63,7 @@ const Navbar = () => {
           )}
         </ul>
 
-        {/* action buttons */}
+        {/* Action Buttons */}
         <div className="items-center gap-3 flex">
           <Link to="/login">
             <button className="py-2 px-4 rounded-full capitalize hover:text-orange-500 transition-all duration-300 flex font-medium cursor-pointer">
@@ -87,7 +91,7 @@ const Navbar = () => {
         )}
 
         <aside
-          className={`fixed top-0 left-0 h-screen w-full  bg-amber-50  p-5 text-center shadow-lg z-20
+          className={`fixed top-0 left-0 h-screen w-full bg-amber-50 p-5 text-center shadow-lg z-20
           transition-transform duration-300 ${
             mobileSidebarOpen ? "translate-x-0" : "-translate-x-full"
           }`}
@@ -108,16 +112,16 @@ const Navbar = () => {
             <IoIosSearch className="absolute top-[10px] left-3 text-gray-500 text-lg" />
           </div>
 
-          <ul className="flex flex-col gap-4 text-base text-gray-600">
+          <ul className="flex flex-col gap-4 text-base text-gray-600 mt-6">
             {["home", "map", "about us", "contact", "price"].map(
               (item, index) => (
                 <NavLink
                   key={index}
                   to={item === "home" ? "/" : `/${item.replace(" ", "")}`}
                   className={({ isActive }) =>
-                    `capitalize transition-all duration-300 ${
+                    `capitalize font-medium transition-all duration-300 ${
                       isActive
-                        ? "text-orange-500 font-semibold"
+                        ? "text-orange-500 underline underline-offset-4"
                         : "hover:text-orange-500"
                     }`
                   }

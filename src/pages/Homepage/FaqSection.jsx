@@ -31,7 +31,6 @@ const FaqSection = () => {
         "Welcome to our world. Meghswar Courier has built a strong reputation as a courier service for online traders in Dhaka since 2015. We are a registered ‘Service Business’ organization under the Government of the People's Republic of Bangladesh. Our goal is to deliver products on time and efficiently. Our custom-built online software allows you to monitor every stage, from parcel handover to cash collection, ensuring a seamless experience.",
     },
   ];
-  
 
   const [isPlusAccording, setIsPlusAccording] = useState(null);
 
@@ -39,12 +38,15 @@ const FaqSection = () => {
     setIsPlusAccording((prevIndex) => (prevIndex === index ? null : index));
 
   return (
-    <div className="flex gap-3 flex-col max-w-4xl mx-auto my-4 md:my-12 px-2">
+    <div className="flex gap-3 flex-col max-w-4xl mx-auto my-4 md:my-32 px-2">
       <h2 className="text-center text-2xl md:text-4xl font-bold mb-4">FAQ</h2>
       {accordionData?.map((according, index) => (
         <article key={index} className="border border-[#e5eaf2] rounded p-3">
           <div
             className="flex gap-2 cursor-pointer items-center justify-between w-full"
+            data-aos="fade-up"
+            data-aos-dalay="1500"
+            data-aos-duration="1200"
             onClick={() => handleBorderClick(index)}
           >
             <h2 className="text-gray-900 font-[600] text-[1.2rem]">

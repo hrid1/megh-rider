@@ -4,6 +4,7 @@ import rider from "../../assets/lottie/rider.json";
 import { FaHome, FaUserTie } from "react-icons/fa";
 import { IoBicycleSharp } from "react-icons/io5";
 import { Link } from "react-router-dom";
+import CountUp from "react-countup";
 
 const HeroSection = () => {
   return (
@@ -38,7 +39,7 @@ const HeroSection = () => {
               </div>
               <div className="">
                 <h2 className="text-2xl md:text-3xl font-bold text-left">
-                  100+
+                  <CountUp start={1} end={100} />+
                 </h2>
                 <p className="text-gray-600 font-semibold">
                   Registered Merchant
@@ -51,7 +52,7 @@ const HeroSection = () => {
               </div>
               <div className="">
                 <h2 className="text-2xl md:text-3xl font-bold text-left">
-                  65+
+                <CountUp start={1} end={65} />+
                 </h2>
                 <p className="text-gray-600 font-semibold">Delivery Man</p>
               </div>
@@ -62,7 +63,7 @@ const HeroSection = () => {
               </div>
               <div className="">
                 <h2 className="text-2xl md:text-3xl font-bold text-left">
-                  47+
+                <CountUp start={1} end={47} />+
                 </h2>
                 <p className="text-gray-600 font-semibold">Delivery Point</p>
               </div>

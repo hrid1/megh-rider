@@ -44,18 +44,20 @@ const ContactUs = () => {
                 alt="Illustration"
                 className="w-full max-w-md"
               />
-              <p className="flex items-center gap-2">
-                <FaHouse />
-                <span>
-                  HQ- 601, Road - 09, Adabor, Mohammadpur, Dhaka 1207
-                </span>
-              </p>
-              <p className="flex items-center gap-2">
-                <FaMailBulk /> <span>info@meghswarcourier.com</span>
-              </p>
-              <p className="flex items-center gap-2">
-                <FaPhone /> <span>+8809601010002</span>
-              </p>
+              <div className="">
+                <p className="flex md:items-center gap-2">
+                  <FaHouse />
+                  <span>
+                    HQ- 601, Road - 09, Adabor, Mohammadpur, Dhaka 1207
+                  </span>
+                </p>
+                <p className="flex items-center gap-2">
+                  <FaMailBulk /> <span>info@meghswarcourier.com</span>
+                </p>
+                <p className="flex items-center gap-2">
+                  <FaPhone /> <span>+8809601010002</span>
+                </p>
+              </div>
             </div>
 
             {/* Right Side Contact Form */}
